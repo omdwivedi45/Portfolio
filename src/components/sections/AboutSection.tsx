@@ -14,13 +14,18 @@ export default function AboutSection() {
       {/* Grid Pattern Mask */}
       <div className="absolute inset-0 bg-grid-pattern opacity-25 radial-mask pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeader
-          badge="About Me"
-          title="Data Analytics //"
-          highlightTitle="Background & Education"
+          badge="SHOWCASE // IDENTITY"
+          title="Digital"
+          highlightTitle="Profile."
           description="Detailed overview of my analytical passion, educational background in AI & ML, and career objective."
-          icon={<User className="w-3.5 h-3.5" />}
+          accentColor="emerald"
+          statusList={[
+            { label: "Live Status", value: USER_PROFILE.statusBadge, highlight: true },
+            { label: "Location", value: USER_PROFILE.location },
+            { label: "Focus", value: "Full-Stack & Analytics" },
+          ]}
         />
 
         <div className="grid lg:grid-cols-12 gap-8 items-stretch">

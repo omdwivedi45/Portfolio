@@ -27,13 +27,17 @@ export default function SkillsSection() {
       {/* Ambient Grid */}
       <div className="absolute inset-0 bg-grid-pattern opacity-25 radial-mask pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeader
-          badge="Capabilities Arsenal"
-          title="Skills & Tech Matrix //"
-          highlightTitle="Neural Network"
-          description="Comprehensive taxonomy of languages, frameworks, cloud services, and software engineering tools."
-          icon={<Binary className="w-3.5 h-3.5" />}
+          badge="CAPABILITIES // ARSENAL"
+          title="Tech"
+          highlightTitle="Matrix."
+          description="Comprehensive taxonomy of data science tools, SQL databases, Python analytics, and BI dashboards."
+          accentColor="purple"
+          statusList={[
+            { label: "Stack Status", value: "Verified", highlight: true },
+            { label: "Categories", value: `${SKILL_CATEGORIES.length} Domains` },
+          ]}
         />
 
         <div className="grid md:grid-cols-2 gap-8">

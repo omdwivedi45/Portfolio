@@ -16,13 +16,18 @@ export default function ProjectsSection() {
       {/* Grid Background Mask */}
       <div className="absolute inset-0 bg-grid-pattern opacity-25 radial-mask pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeader
-          badge="Showcase Works"
-          title="Featured Projects //"
-          highlightTitle="Full-Stack Engineering"
-          description="Curated software products, cloud SaaS platforms, and interactive web applications."
-          icon={<Shapes className="w-3.5 h-3.5" />}
+          badge="SHOWCASE // ARCHIVE"
+          title="Featured"
+          highlightTitle="Works."
+          description="Curated data analysis projects, machine learning models, and interactive BI dashboards."
+          accentColor="purple"
+          statusList={[
+            { label: "System Status", value: "Online", highlight: true },
+            { label: "Selection", value: "Premium" },
+            { label: "Total Archives", value: `${PROJECTS.length}` },
+          ]}
         />
 
         <div className="grid md:grid-cols-2 gap-8">

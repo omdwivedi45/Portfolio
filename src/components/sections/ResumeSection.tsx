@@ -15,13 +15,17 @@ export default function ResumeSection() {
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-25 radial-mask pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeader
-          badge="Credentials me."
-          title="Curriculum Vitae //"
-          highlightTitle="Engineering Dossier"
+          badge="CREDENTIALS // DOSSIER"
+          title="Curriculum"
+          highlightTitle="Vitae."
           description="Download official curriculum vitae or inspect full technical background metadata."
-          icon={<FileText className="w-3.5 h-3.5" />}
+          accentColor="purple"
+          statusList={[
+            { label: "Status", value: "Verified PDF", highlight: true },
+            { label: "Format", value: "A4 Printable" },
+          ]}
         />
 
         <motion.div

@@ -21,13 +21,17 @@ export default function ExperienceSection() {
       {/* Grid Pattern Mask */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 radial-mask pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeader
-          badge="Architecture//Timeline"
-          title="Career Journey //"
-          highlightTitle="Timeline Matrix"
+          badge="ARCHITECTURE // LOG"
+          title="Career"
+          highlightTitle="Timeline."
           description="Chronological log of professional experience, engineering impact, and key accomplishments."
-          icon={<Briefcase className="w-3.5 h-3.5" />}
+          accentColor="indigo"
+          statusList={[
+            { label: "System Status", value: "Active Timeline", highlight: true },
+            { label: "Total Logs", value: `${EXPERIENCES.length} Roles` },
+          ]}
         />
 
         {/* Timeline Container */}

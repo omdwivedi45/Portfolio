@@ -42,13 +42,17 @@ export default function ContactSection() {
       {/* Grid Pattern Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-25 radial-mask pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeader
-          badge="Contact Node"
-          title="Get In Touch //"
-          highlightTitle="Let's Build Together"
+          badge="CONNECT // COMMUNICATION"
+          title="Digital"
+          highlightTitle="Hub."
           description="Direct contact channels for data analytics opportunities, dashboard projects, or collaborations."
-          icon={<Mail className="w-3.5 h-3.5" />}
+          accentColor="pink"
+          statusList={[
+            { label: "Channel Status", value: "Open for Roles", highlight: true },
+            { label: "Response Rate", value: "< 24 Hours" },
+          ]}
         />
 
         <div className="grid lg:grid-cols-12 gap-12 items-start">

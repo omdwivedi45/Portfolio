@@ -14,13 +14,16 @@ export default function MilestonesSection() {
       {/* Grid Pattern Mask */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 radial-mask pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeader
-          badge="Milestones"
-          title="Career Achievements //"
-          highlightTitle="Key Badges"
+          badge="ACHIEVEMENTS // MILESTONES"
+          title="Career"
+          highlightTitle="Highlights."
           description="Key educational milestones, certifications, workshops, and industry training programs completed."
-          icon={<Trophy className="w-3.5 h-3.5" />}
+          accentColor="pink"
+          statusList={[
+            { label: "Verified Stats", value: `${MILESTONES.length} Badges`, highlight: true },
+          ]}
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">

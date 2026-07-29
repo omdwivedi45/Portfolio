@@ -19,13 +19,17 @@ export default function GallerySection() {
       {/* Grid Pattern Mask */}
       <div className="absolute inset-0 bg-grid-pattern opacity-25 radial-mask pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeader
-          badge="Gallery"
-          title="Visual Highlights //"
-          highlightTitle="Photos & Media"
+          badge="MEDIA // GALLERY"
+          title="Visual"
+          highlightTitle="Moments."
           description="Professional photos, workplace moments at Mittsure Technologies, and verified certificate achievements."
-          icon={<Camera className="w-3.5 h-3.5" />}
+          accentColor="indigo"
+          statusList={[
+            { label: "Media Status", value: "Curated Photos", highlight: true },
+            { label: "Total Items", value: `${GALLERY_ITEMS.length}` },
+          ]}
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

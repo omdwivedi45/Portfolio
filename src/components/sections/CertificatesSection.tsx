@@ -19,13 +19,17 @@ export default function CertificatesSection() {
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-25 radial-mask pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeader
-          badge="Certifications"
-          title="Verified Accreditations //"
-          highlightTitle="Certificates Gallery"
+          badge="ACCREDITATIONS // CERTIFICATES"
+          title="Verified"
+          highlightTitle="Credentials."
           description="Official certificates from Deloitte, Tata Group, Microsoft, Cisco, Skill Nation, Titans Learning, and be10X."
-          icon={<Award className="w-3.5 h-3.5" />}
+          accentColor="emerald"
+          statusList={[
+            { label: "Verification", value: "Verified Credentials", highlight: true },
+            { label: "Total Certificates", value: `${CERTIFICATES.length}` },
+          ]}
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
