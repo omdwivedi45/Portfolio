@@ -44,6 +44,7 @@ export interface ExperienceItem {
   description: string;
   achievements: string[];
   skills: string[];
+  image?: string;
   isCurrent?: boolean;
 }
 

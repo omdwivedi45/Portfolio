@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Briefcase, Calendar, MapPin, ChevronDown, ChevronUp, Terminal, CheckCircle2 } from "lucide-react";
+import { Briefcase, Calendar, MapPin, ChevronDown, ChevronUp, Terminal, CheckCircle2, ZoomIn, X, Camera } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { EXPERIENCES } from "@/data/portfolioData";
+import { ExperienceItem } from "@/types";
 
 export default function ExperienceSection() {
   const [expandedId, setExpandedId] = useState<string | null>(EXPERIENCES[0]?.id || null);
+  const [selectedPhoto, setSelectedPhoto] = useState<{ title: string; image: string } | null>(null);
 
   const toggleExpand = (id: string) => {
     setExpandedId(expandedId === id ? null : id);
@@ -26,7 +29,7 @@ export default function ExperienceSection() {
           badge="ARCHITECTURE // LOG"
           title="Career"
           highlightTitle="Timeline."
-          description="Chronological log of professional experience, engineering impact, and key accomplishments."
+          description="Chronological log of professional experience, engineering impact, and workplace photos."
           accentColor="indigo"
           statusList={[
             { label: "System Status", value: "Active Timeline", highlight: true },
@@ -103,6 +106,33 @@ export default function ExperienceSection() {
                       {exp.description}
                     </p>
 
+                    {/* Optional Workplace Photo Preview Box */}
+                    {exp.image && (
+                      <div className="pt-2">
+                        <div
+                          onClick={() => setSelectedPhoto({ title: `${exp.company} — Workplace Photo`, image: exp.image! })}
+                          className="relative aspect-[16/9] max-w-md rounded-xl overflow-hidden bg-zinc-950 border border-white/10 cursor-pointer group/img shadow-xl"
+                        >
+                          <Image
+                            src={exp.image}
+                            alt={exp.company}
+                            fill
+                            className="object-cover object-top group-hover/img:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent opacity-60" />
+                          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-tech z-10">
+                            <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-zinc-950/80 border border-white/10 backdrop-blur-md">
+                              <Camera className="w-3.5 h-3.5 text-purple-400" />
+                              <span>{exp.company} Office Photo</span>
+                            </span>
+                            <span className="flex items-center gap-1 text-[10px] text-purple-300">
+                              <ZoomIn className="w-3.5 h-3.5" /> Click to Zoom
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
                     {/* Expandable Achievements Details */}
                     <AnimatePresence>
                       {isExpanded && (
@@ -115,7 +145,7 @@ export default function ExperienceSection() {
                         >
                           <div className="space-y-2">
                             <h4 className="text-xs font-tech font-bold uppercase tracking-wider text-purple-400">
-                              // Key Architectural Achievements
+                              // Key Achievements & Impact
                             </h4>
                             <ul className="space-y-2 text-sm text-zinc-300">
                               {exp.achievements.map((ach, i) => (
@@ -150,6 +180,50 @@ export default function ExperienceSection() {
           </div>
         </div>
       </div>
+
+      {/* Workplace Photo Lightbox Modal */}
+      <AnimatePresence>
+        {selectedPhoto && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-8 backdrop-blur-2xl"
+            onClick={() => setSelectedPhoto(null)}
+          >
+            <div
+              className="relative max-w-3xl w-full bg-zinc-950 border border-white/15 rounded-2xl overflow-hidden p-6 space-y-4 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-base font-bold font-tech text-white">
+                    {selectedPhoto.title}
+                  </h3>
+                  <p className="text-xs font-tech text-purple-400">
+                    Mittsure Technologies Office — Relationship Manager Role
+                  </p>
+                </div>
+                <button
+                  onClick={() => setSelectedPhoto(null)}
+                  className="w-9 h-9 rounded-xl bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-white"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="relative aspect-[3/4] sm:aspect-[4/5] max-h-[75vh] w-full rounded-xl overflow-hidden bg-zinc-900 border border-white/10">
+                <Image
+                  src={selectedPhoto.image}
+                  alt={selectedPhoto.title}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
