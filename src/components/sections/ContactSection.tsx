@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import { Mail, Send, CheckCircle2, Terminal, MapPin, Phone, Linkedin, Github, Sparkles, AlertCircle } from "lucide-react";
+import { Mail, Send, CheckCircle2, Terminal, MapPin, Phone, Linkedin, Github, Sparkles, AlertCircle, ExternalLink } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { USER_PROFILE } from "@/data/portfolioData";
 
@@ -18,6 +18,7 @@ export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [submittedData, setSubmittedData] = useState<ContactFormData | null>(null);
 
   const {
     register,
@@ -29,6 +30,7 @@ export default function ContactSection() {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     setErrorMessage(null);
+    setSubmittedData(data);
 
     try {
       // Send message to Next.js API endpoint /api/contact
@@ -64,11 +66,18 @@ export default function ContactSection() {
         setIsSubmitted(true);
         reset();
       } catch (fallbackErr) {
-        setErrorMessage("Transmission error. Please email directly to dwivediomprakash450@gmail.com.");
+        setErrorMessage("Transmission error. Please click Direct Email button below.");
       }
-    } fontally: {
+    } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const openDirectMailto = () => {
+    if (!submittedData) return;
+    const subject = encodeURIComponent(submittedData.subject || `Inquiry from ${submittedData.name}`);
+    const body = encodeURIComponent(`Name: ${submittedData.name}\nEmail: ${submittedData.email}\n\nMessage:\n${submittedData.message}`);
+    window.open(`mailto:${USER_PROFILE.email}?subject=${subject}&body=${body}`, "_blank");
   };
 
   return (
@@ -190,27 +199,45 @@ export default function ContactSection() {
             className="lg:col-span-7 p-8 rounded-2xl bg-zinc-900/40 border border-white/5 backdrop-blur-md hover:border-purple-500/30 transition-all duration-300 shadow-2xl relative"
           >
             {isSubmitted ? (
-              <div className="text-center py-16 space-y-6">
+              <div className="text-center py-12 space-y-6">
                 <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto">
                   <CheckCircle2 className="w-8 h-8 animate-bounce" />
                 </div>
                 <div className="space-y-3">
                   <h4 className="text-2xl font-bold font-tech text-white">
-                    Real Message Transmitted!
+                    Signal Transmitted!
                   </h4>
                   <p className="text-xs md:text-sm text-zinc-300 max-w-md mx-auto font-tech leading-relaxed">
-                    Your message was sent directly to <strong className="text-emerald-400 font-bold">dwivediomprakash450@gmail.com</strong>.
+                    Message processed for <strong className="text-emerald-400 font-bold">dwivediomprakash450@gmail.com</strong>.
                   </p>
-                  <p className="text-[11px] text-amber-400/90 max-w-sm mx-auto font-tech border border-amber-500/20 bg-amber-500/10 p-2.5 rounded-xl">
-                    📌 Note: On the very first test message, FormSubmit sends a 1-click activation email to <strong>dwivediomprakash450@gmail.com</strong>. Click "Activate" in your Gmail inbox to confirm delivery!
-                  </p>
+
+                  <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-500/30 text-left space-y-2 font-tech text-xs text-purple-200 max-w-md mx-auto">
+                    <div className="flex items-center gap-2 text-purple-300 font-bold">
+                      <Sparkles className="w-4 h-4 text-amber-400" />
+                      <span>IMPORTANT: 1-Click Activation Step</span>
+                    </div>
+                    <p className="text-[11px] text-zinc-300 leading-relaxed">
+                      If this is your first submission, check your Gmail inbox (<strong>dwivediomprakash450@gmail.com</strong> or Spam folder) for an email from <strong>FormSubmit</strong> titled <em>"Action Required: Activate your form"</em> and click <strong>Activate Form</strong>.
+                    </p>
+                  </div>
                 </div>
-                <button
-                  onClick={() => setIsSubmitted(false)}
-                  className="px-6 py-2.5 rounded-xl bg-zinc-800 text-xs font-tech text-purple-300 hover:bg-zinc-700 border border-white/10"
-                >
-                  Send Another Message
-                </button>
+
+                <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                  <button
+                    onClick={openDirectMailto}
+                    className="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-xs font-tech text-white font-bold flex items-center gap-2 shadow-lg shadow-purple-950/40"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>Send via Direct Email App</span>
+                  </button>
+
+                  <button
+                    onClick={() => setIsSubmitted(false)}
+                    className="px-5 py-2.5 rounded-xl bg-zinc-800 text-xs font-tech text-zinc-300 hover:bg-zinc-700 border border-white/10"
+                  >
+                    Send Another Message
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
