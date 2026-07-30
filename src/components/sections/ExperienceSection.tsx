@@ -111,19 +111,19 @@ export default function ExperienceSection() {
                       <div className="pt-2">
                         <div
                           onClick={() => setSelectedPhoto({ title: `${exp.company} — Workplace Photo`, image: exp.image! })}
-                          className="relative aspect-[16/9] max-w-md rounded-xl overflow-hidden bg-zinc-950 border border-white/10 cursor-pointer group/img shadow-xl"
+                          className="relative aspect-[16/10] sm:aspect-[16/9] max-w-md rounded-xl overflow-hidden bg-zinc-950 border border-white/10 cursor-pointer group/img shadow-xl"
                         >
                           <Image
                             src={exp.image}
                             alt={exp.company}
                             fill
-                            className="object-cover object-top group-hover/img:scale-105 transition-transform duration-500"
+                            className="object-cover object-center group-hover/img:scale-105 transition-transform duration-500"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent opacity-60" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent opacity-40" />
                           <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-tech z-10">
                             <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-zinc-950/80 border border-white/10 backdrop-blur-md">
                               <Camera className="w-3.5 h-3.5 text-purple-400" />
-                              <span>{exp.company} Office Photo</span>
+                              <span>{exp.company} Workplace Photo</span>
                             </span>
                             <span className="flex items-center gap-1 text-[10px] text-purple-300">
                               <ZoomIn className="w-3.5 h-3.5" /> Click to Zoom
@@ -212,12 +212,12 @@ export default function ExperienceSection() {
                 </button>
               </div>
 
-              <div className="relative aspect-[3/4] sm:aspect-[4/5] max-h-[75vh] w-full rounded-xl overflow-hidden bg-zinc-900 border border-white/10">
+              <div className="relative h-[70vh] max-h-[650px] w-full rounded-xl overflow-hidden bg-zinc-950 border border-white/10 flex items-center justify-center">
                 <Image
                   src={selectedPhoto.image}
                   alt={selectedPhoto.title}
                   fill
-                  className="object-contain"
+                  className="object-contain p-2"
                 />
               </div>
             </div>

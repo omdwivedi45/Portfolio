@@ -47,7 +47,7 @@ export default function GallerySection() {
                 src={item.image}
                 alt={item.title}
                 fill
-                className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
@@ -103,12 +103,12 @@ export default function GallerySection() {
                 </button>
               </div>
 
-              <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-zinc-950 border border-white/5">
+              <div className="relative h-[70vh] max-h-[650px] w-full rounded-xl overflow-hidden bg-zinc-950 border border-white/5 flex items-center justify-center">
                 <Image
                   src={selectedItem.image}
                   alt={selectedItem.title}
                   fill
-                  className="object-contain"
+                  className="object-contain p-2"
                 />
               </div>
             </div>
