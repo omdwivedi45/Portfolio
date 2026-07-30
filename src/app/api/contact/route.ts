@@ -12,37 +12,36 @@ export async function POST(req: Request) {
       );
     }
 
-    // Direct FormSubmit Endpoint for real delivery to dwivediomprakash450@gmail.com
-    const response = await fetch("https://formsubmit.co/ajax/dwivediomprakash450@gmail.com", {
+    const payload = {
+      name,
+      email,
+      _subject: subject || `Portfolio Inquiry from ${name}`,
+      message: `Sender Name: ${name}\nSender Email: ${email}\nSubject: ${subject || "N/A"}\n\nMessage:\n${message}`,
+      _template: "table",
+      _captcha: "false",
+    };
+
+    // Primary Service: FormSubmit AJAX endpoint for dwivediomprakash450@gmail.com
+    const res = await fetch("https://formsubmit.co/ajax/dwivediomprakash450@gmail.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({
-        name,
-        email,
-        _subject: subject || `New Portfolio Contact Message from ${name}`,
-        message,
-        _template: "table",
-        _captcha: "false",
-      }),
+      body: JSON.stringify(payload),
     });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error("FormSubmit response error:", errorText);
-      // Fallback response for resilience
-    }
+    const resData = await res.json().catch(() => null);
 
     return NextResponse.json({
       success: true,
-      message: "Real email signal transmitted successfully to dwivediomprakash450@gmail.com",
+      data: resData,
+      message: "Email signal transmitted to dwivediomprakash450@gmail.com",
     });
   } catch (error: any) {
-    console.error("Contact API error:", error);
+    console.error("Contact API submission error:", error);
     return NextResponse.json(
-      { error: error.message || "Failed to process transmission" },
+      { error: error.message || "Transmission failed" },
       { status: 500 }
     );
   }

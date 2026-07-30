@@ -31,7 +31,7 @@ export default function ContactSection() {
     setErrorMessage(null);
 
     try {
-      // 1. Post to real Next.js API Route /api/contact which sends email to dwivediomprakash450@gmail.com
+      // Send message to Next.js API endpoint /api/contact
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -43,20 +43,6 @@ export default function ContactSection() {
       if (!res.ok) {
         throw new Error(resData.error || "Failed to send message via server.");
       }
-
-      // Also trigger a direct mailto as fallback backup to ensure 100% arrival
-      const mailtoSubject = encodeURIComponent(data.subject || `Portfolio Contact from ${data.name}`);
-      const mailtoBody = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
-      
-      // Hidden anchor click for instant mail draft opening if user prefers native client
-      const mailtoUrl = `mailto:${USER_PROFILE.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
-      const hiddenLink = document.createElement("a");
-      hiddenLink.href = mailtoUrl;
-      hiddenLink.target = "_blank";
-      hiddenLink.style.display = "none";
-      document.body.appendChild(hiddenLink);
-      hiddenLink.click();
-      document.body.removeChild(hiddenLink);
 
       setIsSubmitted(true);
       reset();
@@ -72,14 +58,15 @@ export default function ContactSection() {
             email: data.email,
             _subject: data.subject || `New Portfolio Contact Message from ${data.name}`,
             message: data.message,
+            _captcha: "false",
           }),
         });
         setIsSubmitted(true);
         reset();
       } catch (fallbackErr) {
-        setErrorMessage("Could not transmit automatically. Please click direct email below to send.");
+        setErrorMessage("Transmission error. Please email directly to dwivediomprakash450@gmail.com.");
       }
-    } finally {
+    } fontally: {
       setIsSubmitting(false);
     }
   };
@@ -207,12 +194,15 @@ export default function ContactSection() {
                 <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto">
                   <CheckCircle2 className="w-8 h-8 animate-bounce" />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <h4 className="text-2xl font-bold font-tech text-white">
                     Real Message Transmitted!
                   </h4>
-                  <p className="text-xs md:text-sm text-zinc-300 max-w-md mx-auto font-tech">
-                    Your message was sent directly to <span className="text-emerald-400 font-bold">dwivediomprakash450@gmail.com</span>. Om Prakash will review and reply to your email shortly.
+                  <p className="text-xs md:text-sm text-zinc-300 max-w-md mx-auto font-tech leading-relaxed">
+                    Your message was sent directly to <strong className="text-emerald-400 font-bold">dwivediomprakash450@gmail.com</strong>.
+                  </p>
+                  <p className="text-[11px] text-amber-400/90 max-w-sm mx-auto font-tech border border-amber-500/20 bg-amber-500/10 p-2.5 rounded-xl">
+                    📌 Note: On the very first test message, FormSubmit sends a 1-click activation email to <strong>dwivediomprakash450@gmail.com</strong>. Click "Activate" in your Gmail inbox to confirm delivery!
                   </p>
                 </div>
                 <button
