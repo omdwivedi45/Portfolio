@@ -18,7 +18,7 @@ export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [submittedData, setSubmittedData] = useState<ContactFormData | null>(null);
+  const [lastData, setLastData] = useState<ContactFormData | null>(null);
 
   const {
     register,
@@ -30,54 +30,39 @@ export default function ContactSection() {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     setErrorMessage(null);
-    setSubmittedData(data);
+    setLastData(data);
 
+    const emailSubject = data.subject ? `[Portfolio] ${data.subject}` : `[Portfolio] Message from ${data.name}`;
+    const emailBody = `Name: ${data.name}\nEmail: ${data.email}\nSubject: ${data.subject || "N/A"}\n\nMessage Payload:\n${data.message}`;
+
+    // 1. Construct direct Gmail Web Compose URL (100% Direct Google Transmission)
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(USER_PROFILE.email)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    // 2. Open Gmail Web compose in a new tab for direct user dispatch
+    window.open(gmailUrl, "_blank");
+
+    // 3. Simultaneously transmit via background server API route /api/contact
     try {
-      // Send multipart FormData to Next.js API route /api/contact
-      const res = await fetch("/api/contact", {
+      await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
-      const resData = await res.json();
-
-      if (!res.ok) {
-        throw new Error(resData.error || "Failed to send message via server.");
-      }
-
-      setIsSubmitted(true);
-      reset();
-    } catch (err: any) {
-      console.error("Submission error:", err);
-      // Fallback submit directly via FormSubmit AJAX with Origin header
-      try {
-        const formData = new FormData();
-        formData.append("name", data.name);
-        formData.append("email", data.email);
-        formData.append("_subject", data.subject || `Portfolio Contact Message from ${data.name}`);
-        formData.append("message", data.message);
-        formData.append("_captcha", "false");
-
-        await fetch(`https://formsubmit.co/ajax/${USER_PROFILE.email}`, {
-          method: "POST",
-          body: formData,
-        });
-        setIsSubmitted(true);
-        reset();
-      } catch (fallbackErr) {
-        setErrorMessage("Transmission error. Please email directly to dwivediomprakash450@gmail.com.");
-      }
-    } finally {
-      setIsSubmitting(false);
+    } catch (e) {
+      console.warn("Background API transmit attempt logged:", e);
     }
+
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    reset();
   };
 
-  const openDirectMailto = () => {
-    if (!submittedData) return;
-    const subject = encodeURIComponent(submittedData.subject || `Inquiry from ${submittedData.name}`);
-    const body = encodeURIComponent(`Name: ${submittedData.name}\nEmail: ${submittedData.email}\n\nMessage:\n${submittedData.message}`);
-    window.open(`mailto:${USER_PROFILE.email}?subject=${subject}&body=${body}`, "_blank");
+  const reOpenGmail = () => {
+    if (!lastData) return;
+    const emailSubject = lastData.subject ? `[Portfolio] ${lastData.subject}` : `[Portfolio] Message from ${lastData.name}`;
+    const emailBody = `Name: ${lastData.name}\nEmail: ${lastData.email}\nSubject: ${lastData.subject || "N/A"}\n\nMessage Payload:\n${lastData.message}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(USER_PROFILE.email)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    window.open(gmailUrl, "_blank");
   };
 
   return (
@@ -97,7 +82,7 @@ export default function ContactSection() {
           accentColor="pink"
           statusList={[
             { label: "Channel Status", value: "Open for Roles", highlight: true },
-            { label: "Target Inbox", value: USER_PROFILE.email },
+            { label: "Direct Inbox", value: USER_PROFILE.email },
           ]}
         />
 
@@ -113,13 +98,13 @@ export default function ContactSection() {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-tech">
                 <Terminal className="w-3.5 h-3.5" />
-                <span>REAL_TIME_GMAIL_TRANSMISSION</span>
+                <span>DIRECT_GMAIL_DISPATCH</span>
               </div>
               <h3 className="text-2xl font-bold font-tech text-white">
                 Let's Build Something Meaningful Together.
               </h3>
               <p className="text-xs md:text-sm text-zinc-400 leading-relaxed font-sans">
-                I'm actively looking for opportunities in Data Analytics, Business Intelligence, and Data Visualization. Submitting this form sends a real email directly to my Gmail inbox: <strong className="text-purple-300 font-tech">{USER_PROFILE.email}</strong>.
+                I'm actively looking for opportunities in Data Analytics, Business Intelligence, and Data Visualization. Submitting this form opens Gmail directly to send an authentic email to <strong className="text-purple-300 font-tech">{USER_PROFILE.email}</strong>.
               </p>
             </div>
 
@@ -132,7 +117,9 @@ export default function ContactSection() {
                 <div className="overflow-hidden">
                   <span className="text-zinc-500 block text-[10px]">REAL_GMAIL_INBOX</span>
                   <a
-                    href={`mailto:${USER_PROFILE.email}`}
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(USER_PROFILE.email)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-white font-bold hover:text-purple-300 transition-colors truncate block"
                   >
                     {USER_PROFILE.email}
@@ -205,35 +192,25 @@ export default function ContactSection() {
                 </div>
                 <div className="space-y-3">
                   <h4 className="text-2xl font-bold font-tech text-white">
-                    Real Message Transmitted!
+                    Direct Gmail Window Triggered!
                   </h4>
                   <p className="text-xs md:text-sm text-zinc-300 max-w-md mx-auto font-tech leading-relaxed">
-                    Message submitted for <strong className="text-emerald-400 font-bold">dwivediomprakash450@gmail.com</strong>.
+                    Gmail has opened with your message pre-filled for <strong className="text-emerald-400 font-bold">dwivediomprakash450@gmail.com</strong>.
                   </p>
-
-                  <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-500/30 text-left space-y-2 font-tech text-xs text-purple-200 max-w-md mx-auto">
-                    <div className="flex items-center gap-2 text-purple-300 font-bold">
-                      <Sparkles className="w-4 h-4 text-amber-400" />
-                      <span>FormSubmit Confirmation Check</span>
-                    </div>
-                    <p className="text-[11px] text-zinc-300 leading-relaxed">
-                      Check your Gmail inbox (<strong>dwivediomprakash450@gmail.com</strong> or Spam/Promotions tab) for a FormSubmit email titled <em>"Action Required: Activate your form"</em>. Click <strong>Activate Form</strong> once to confirm real-time inbox forwarding!
-                    </p>
-                  </div>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                   <button
-                    onClick={openDirectMailto}
-                    className="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-xs font-tech text-white font-bold flex items-center gap-2 shadow-lg shadow-purple-950/40"
+                    onClick={reOpenGmail}
+                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-xs font-tech text-white font-bold flex items-center gap-2 shadow-lg shadow-purple-950/40"
                   >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    <span>Send via Gmail App</span>
+                    <ExternalLink className="w-4 h-4" />
+                    <span>Re-Open Gmail Window</span>
                   </button>
 
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="px-5 py-2.5 rounded-xl bg-zinc-800 text-xs font-tech text-zinc-300 hover:bg-zinc-700 border border-white/10"
+                    className="px-6 py-3 rounded-xl bg-zinc-800 text-xs font-tech text-zinc-300 hover:bg-zinc-700 border border-white/10"
                   >
                     Send Another Message
                   </button>
@@ -332,12 +309,12 @@ export default function ContactSection() {
                   {isSubmitting ? (
                     <>
                       <Sparkles className="w-4 h-4 animate-spin" />
-                      <span>Transmitting Email to Gmail...</span>
+                      <span>Opening Gmail...</span>
                     </>
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      <span>Send Real Message to Gmail</span>
+                      <span>Send Direct Message via Gmail</span>
                     </>
                   )}
                 </button>
