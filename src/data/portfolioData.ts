@@ -309,37 +309,37 @@ export const CERTIFICATES: CertificateItem[] = [
     description: "Executed practical tasks in exploratory data analysis, risk profiling, AI-driven predictive delinquency analysis, and business reporting."
   },
   {
-    id: "cert-powerbi-ms",
-    title: "Microsoft Power BI Certified",
-    issuer: "Microsoft",
-    date: "2026",
-    credentialId: "MS-PBI-2026",
+    id: "cert-cisco-python",
+    title: "Partner: PCAP - Programming Essentials in Python",
+    issuer: "Cisco Networking Academy",
+    date: "June 07, 2024",
+    credentialId: "CISCO-PCAP-2024",
     credentialUrl: "#",
-    image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=1000",
-    skills: ["Power BI", "DAX", "Data Modeling", "Dashboard Design"],
-    description: "Demonstrated professional capability in designing enterprise dashboards, DAX measures, and data modeling in Power BI."
+    image: "/assets/cert-cisco-python.png",
+    skills: ["Python", "Data Analysis", "Algorithms", "Problem Solving"],
+    description: "Completed Partner: PCAP - Programming Essentials in Python through Cisco Networking Academy program."
   },
   {
-    id: "cert-cisco-python",
-    title: "Cisco Python Essentials",
-    issuer: "Cisco Networking Academy",
-    date: "2026",
-    credentialId: "CISCO-PY-2026",
+    id: "cert-powerbi-ms",
+    title: "Get started building with Power BI",
+    issuer: "Microsoft",
+    date: "August 28, 2025",
+    credentialId: "MS-PBI-2025",
     credentialUrl: "#",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1000",
-    skills: ["Python", "Data Structures", "Algorithms", "Object-Oriented Programming"],
-    description: "Validated mastery of fundamental Python programming, data structures, and algorithmic logic."
+    image: "/assets/cert-ms-powerbi.png",
+    skills: ["Power BI", "Data Modeling", "Business Intelligence", "DAX"],
+    description: "Successfully completed Get started building with Power BI certification issued by Microsoft."
   },
   {
     id: "cert-skill-nation",
-    title: "Skill Nation Power BI Masterclass",
-    issuer: "Skill Nation",
-    date: "2026",
-    credentialId: "SN-PBI-MC-2026",
+    title: "Basic to Advanced Microsoft Power BI",
+    issuer: "Skill Nation (Mr. Jatan Shah)",
+    date: "2025",
+    credentialId: "2D169D5AF720-2D169D4C9FAC-2D08AACCC861",
     credentialUrl: "#",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
-    skills: ["Power BI", "Data Visualization", "Business Intelligence"],
-    description: "Specialized training on advanced Power BI dashboard development, custom visualizations, and executive KPIs."
+    image: "/assets/cert-skillnation-powerbi.png",
+    skills: ["Power BI Masterclass", "DAX Formulas", "Interactive Dashboards", "KPI Reporting"],
+    description: "Awarded Certificate of Completion for Advanced Masterclass on Basic to Advanced Microsoft Power BI."
   },
   {
     id: "cert-titans",
