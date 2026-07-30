@@ -25,7 +25,7 @@ export const USER_PROFILE: UserProfile = {
   github: "https://github.com/omdwivedi45",
   linkedin: "https://linkedin.com/in/omprakashdwivedi45",
   avatarUrl: "/assets/suit-photo.jpg",
-  resumeUrl: "/assets/resume-placeholder.pdf",
+  resumeUrl: "/assets/resume-omprakash.pdf",
   stats: [
     { label: "B.Tech Specialization", value: "AI & ML", subtext: "Class of 2022–2026" },
     { label: "Core Analytics Stack", value: "SQL & Power BI", subtext: "Python & Pandas Expertise" },
