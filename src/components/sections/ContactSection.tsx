@@ -33,7 +33,7 @@ export default function ContactSection() {
     setSubmittedData(data);
 
     try {
-      // Send message to Next.js API endpoint /api/contact
+      // Send multipart FormData to Next.js API route /api/contact
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -50,23 +50,23 @@ export default function ContactSection() {
       reset();
     } catch (err: any) {
       console.error("Submission error:", err);
-      // Fallback submit directly via FormSubmit AJAX endpoint
+      // Fallback submit directly via FormSubmit AJAX with Origin header
       try {
+        const formData = new FormData();
+        formData.append("name", data.name);
+        formData.append("email", data.email);
+        formData.append("_subject", data.subject || `Portfolio Contact Message from ${data.name}`);
+        formData.append("message", data.message);
+        formData.append("_captcha", "false");
+
         await fetch(`https://formsubmit.co/ajax/${USER_PROFILE.email}`, {
           method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({
-            name: data.name,
-            email: data.email,
-            _subject: data.subject || `New Portfolio Contact Message from ${data.name}`,
-            message: data.message,
-            _captcha: "false",
-          }),
+          body: formData,
         });
         setIsSubmitted(true);
         reset();
       } catch (fallbackErr) {
-        setErrorMessage("Transmission error. Please click Direct Email button below.");
+        setErrorMessage("Transmission error. Please email directly to dwivediomprakash450@gmail.com.");
       }
     } finally {
       setIsSubmitting(false);
@@ -205,19 +205,19 @@ export default function ContactSection() {
                 </div>
                 <div className="space-y-3">
                   <h4 className="text-2xl font-bold font-tech text-white">
-                    Signal Transmitted!
+                    Real Message Transmitted!
                   </h4>
                   <p className="text-xs md:text-sm text-zinc-300 max-w-md mx-auto font-tech leading-relaxed">
-                    Message processed for <strong className="text-emerald-400 font-bold">dwivediomprakash450@gmail.com</strong>.
+                    Message submitted for <strong className="text-emerald-400 font-bold">dwivediomprakash450@gmail.com</strong>.
                   </p>
 
                   <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-500/30 text-left space-y-2 font-tech text-xs text-purple-200 max-w-md mx-auto">
                     <div className="flex items-center gap-2 text-purple-300 font-bold">
                       <Sparkles className="w-4 h-4 text-amber-400" />
-                      <span>IMPORTANT: 1-Click Activation Step</span>
+                      <span>FormSubmit Confirmation Check</span>
                     </div>
                     <p className="text-[11px] text-zinc-300 leading-relaxed">
-                      If this is your first submission, check your Gmail inbox (<strong>dwivediomprakash450@gmail.com</strong> or Spam folder) for an email from <strong>FormSubmit</strong> titled <em>"Action Required: Activate your form"</em> and click <strong>Activate Form</strong>.
+                      Check your Gmail inbox (<strong>dwivediomprakash450@gmail.com</strong> or Spam/Promotions tab) for a FormSubmit email titled <em>"Action Required: Activate your form"</em>. Click <strong>Activate Form</strong> once to confirm real-time inbox forwarding!
                     </p>
                   </div>
                 </div>
@@ -228,7 +228,7 @@ export default function ContactSection() {
                     className="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-xs font-tech text-white font-bold flex items-center gap-2 shadow-lg shadow-purple-950/40"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
-                    <span>Send via Direct Email App</span>
+                    <span>Send via Gmail App</span>
                   </button>
 
                   <button

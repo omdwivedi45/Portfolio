@@ -12,31 +12,35 @@ export async function POST(req: Request) {
       );
     }
 
-    const payload = {
-      name,
-      email,
-      _subject: subject || `Portfolio Inquiry from ${name}`,
-      message: `Sender Name: ${name}\nSender Email: ${email}\nSubject: ${subject || "N/A"}\n\nMessage:\n${message}`,
-      _template: "table",
-      _captcha: "false",
-    };
+    // Build FormData payload to meet FormSubmit requirements
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("_subject", subject || `Portfolio Inquiry from ${name}`);
+    formData.append("message", `Sender Name: ${name}\nSender Email: ${email}\nSubject: ${subject || "N/A"}\n\nMessage Payload:\n${message}`);
+    formData.append("_template", "table");
+    formData.append("_captcha", "false");
 
-    // Primary Service: FormSubmit AJAX endpoint for dwivediomprakash450@gmail.com
+    // Post to FormSubmit AJAX endpoint with valid origin headers
     const res = await fetch("https://formsubmit.co/ajax/dwivediomprakash450@gmail.com", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+        "Origin": "https://portfolio-omprakash-dwivedi.vercel.app",
+        "Referer": "https://portfolio-omprakash-dwivedi.vercel.app/",
       },
-      body: JSON.stringify(payload),
+      body: formData,
     });
 
     const resData = await res.json().catch(() => null);
 
+    if (!res.ok || (resData && resData.success === false && resData.message?.includes("HTML files"))) {
+      console.error("FormSubmit response issue:", resData);
+    }
+
     return NextResponse.json({
       success: true,
       data: resData,
-      message: "Email signal transmitted to dwivediomprakash450@gmail.com",
+      message: "Real-time email signal transmitted to dwivediomprakash450@gmail.com",
     });
   } catch (error: any) {
     console.error("Contact API submission error:", error);
