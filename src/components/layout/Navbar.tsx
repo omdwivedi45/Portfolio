@@ -70,7 +70,7 @@ export default function Navbar() {
           : "bg-transparent py-4"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between gap-2 sm:gap-4">
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between gap-3">
         
         {/* Left Monogram Brand Logo */}
         <button
@@ -87,8 +87,8 @@ export default function Navbar() {
           </div>
         </button>
 
-        {/* Rishabh-Style Visible Desktop & Tablet Pill Navigation Header Bar */}
-        <nav className="hidden md:flex items-center gap-0.5 p-1 rounded-2xl bg-zinc-950/90 border border-white/10 backdrop-blur-xl shadow-2xl overflow-x-auto max-w-full">
+        {/* Desktop Navigation Header Pill Bar (No Scrollbar/Slider, Clean Single Row) */}
+        <nav className="hidden lg:flex items-center gap-0.5 p-1 rounded-2xl bg-zinc-950/90 border border-white/10 backdrop-blur-xl shadow-2xl shrink-0">
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;
@@ -122,15 +122,15 @@ export default function Navbar() {
 
         {/* Right Status Badge & Mobile Toggle */}
         <div className="flex items-center gap-2 shrink-0">
-          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-purple-500/30 text-purple-300 text-[11px] font-tech backdrop-blur-md">
+          <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-purple-500/30 text-purple-300 text-[11px] font-tech backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
-            <span className="uppercase font-bold tracking-wider">SYSTEM ONLINE // 2026</span>
+            <span className="uppercase font-bold tracking-wider">SYSTEM ONLINE</span>
           </div>
 
-          {/* Mobile Hamburger Button (Only on small screens < 768px) */}
+          {/* Mobile Hamburger Toggle (Visible on screens < 1024px) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden w-9 h-9 rounded-xl bg-zinc-900 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white"
+            className="lg:hidden w-9 h-9 rounded-xl bg-zinc-900 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white"
             aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -138,16 +138,16 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer (For small screens < 768px) */}
+      {/* Mobile Drawer (For screens < 1024px) */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#050505]/95 border-b border-white/10 backdrop-blur-xl overflow-hidden"
+            className="lg:hidden bg-[#050505]/95 border-b border-white/10 backdrop-blur-xl overflow-hidden"
           >
-            <div className="container mx-auto px-4 py-6 grid grid-cols-2 gap-2">
+            <div className="container mx-auto px-4 py-6 grid grid-cols-2 sm:grid-cols-3 gap-2">
               {NAV_ITEMS.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeSection === item.id;
