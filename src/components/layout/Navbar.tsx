@@ -10,7 +10,6 @@ import {
   Trophy,
   Rocket,
   Award,
-  FileText,
   Camera,
   Mail,
   Menu,
@@ -25,9 +24,8 @@ const NAV_ITEMS = [
   { id: "milestones", num: "05", label: "MILESTONES", icon: Trophy },
   { id: "projects", num: "06", label: "PROJECTS", icon: Rocket },
   { id: "certifications", num: "07", label: "CERTIFICATIONS", icon: Award },
-  { id: "resume", num: "08", label: "RESUME", icon: FileText },
-  { id: "gallery", num: "09", label: "GALLERY", icon: Camera },
-  { id: "contact", num: "10", label: "CONTACT", icon: Mail },
+  { id: "gallery", num: "08", label: "GALLERY", icon: Camera },
+  { id: "contact", num: "09", label: "CONTACT", icon: Mail },
 ];
 
 export default function Navbar() {
@@ -68,11 +66,11 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#050505]/95 backdrop-blur-xl border-b border-white/10 py-2 shadow-2xl"
+          ? "bg-[#050505]/95 backdrop-blur-xl border-b border-white/10 py-2.5 shadow-2xl"
           : "bg-transparent py-4"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between gap-2 sm:gap-4">
         
         {/* Left Monogram Brand Logo */}
         <button
@@ -89,8 +87,8 @@ export default function Navbar() {
           </div>
         </button>
 
-        {/* Rishabh-Style Desktop Pill Navigation Header Bar (xl and up to prevent laptops overlap) */}
-        <nav className="hidden xl:flex items-center gap-0.5 p-1 rounded-2xl bg-zinc-950/90 border border-white/10 backdrop-blur-xl shadow-2xl overflow-x-auto shrink-0 max-w-full">
+        {/* Rishabh-Style Visible Desktop & Tablet Pill Navigation Header Bar */}
+        <nav className="hidden md:flex items-center gap-0.5 p-1 rounded-2xl bg-zinc-950/90 border border-white/10 backdrop-blur-xl shadow-2xl overflow-x-auto max-w-full">
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;
@@ -99,7 +97,7 @@ export default function Navbar() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-[10px] 2xl:text-[11px] font-tech font-bold tracking-wider transition-all duration-300 select-none whitespace-nowrap ${
+                className={`relative flex items-center gap-1 px-2 lg:px-2.5 py-1.5 rounded-xl text-[10px] lg:text-[11px] font-tech font-bold tracking-wider transition-all duration-300 select-none whitespace-nowrap ${
                   isActive
                     ? "text-white"
                     : "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/60"
@@ -123,16 +121,16 @@ export default function Navbar() {
         </nav>
 
         {/* Right Status Badge & Mobile Toggle */}
-        <div className="flex items-center gap-3 shrink-0">
-          <div className="hidden 2xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-purple-500/30 text-purple-300 text-[11px] font-tech backdrop-blur-md">
+        <div className="flex items-center gap-2 shrink-0">
+          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-purple-500/30 text-purple-300 text-[11px] font-tech backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
             <span className="uppercase font-bold tracking-wider">SYSTEM ONLINE // 2026</span>
           </div>
 
-          {/* Mobile / Tablet Menu Hamburger Button */}
+          {/* Mobile Hamburger Button (Only on small screens < 768px) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden w-10 h-10 rounded-xl bg-zinc-900 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white"
+            className="md:hidden w-9 h-9 rounded-xl bg-zinc-900 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white"
             aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -140,16 +138,16 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile / Tablet Navigation Drawer */}
+      {/* Mobile Navigation Drawer (For small screens < 768px) */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="xl:hidden bg-[#050505]/95 border-b border-white/10 backdrop-blur-xl overflow-hidden"
+            className="md:hidden bg-[#050505]/95 border-b border-white/10 backdrop-blur-xl overflow-hidden"
           >
-            <div className="container mx-auto px-4 py-6 grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <div className="container mx-auto px-4 py-6 grid grid-cols-2 gap-2">
               {NAV_ITEMS.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeSection === item.id;
