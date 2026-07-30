@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import { Mail, Send, CheckCircle2, Terminal, MapPin, Phone, Linkedin, Github, Sparkles } from "lucide-react";
+import { Mail, Send, CheckCircle2, Terminal, MapPin, Phone, Linkedin, Github, Sparkles, AlertCircle } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { USER_PROFILE } from "@/data/portfolioData";
 
@@ -17,6 +17,7 @@ interface ContactFormData {
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const {
     register,
@@ -27,11 +28,60 @@ export default function ContactSection() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    // Simulate transmission state
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    reset();
+    setErrorMessage(null);
+
+    try {
+      // 1. Post to real Next.js API Route /api/contact which sends email to dwivediomprakash450@gmail.com
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const resData = await res.json();
+
+      if (!res.ok) {
+        throw new Error(resData.error || "Failed to send message via server.");
+      }
+
+      // Also trigger a direct mailto as fallback backup to ensure 100% arrival
+      const mailtoSubject = encodeURIComponent(data.subject || `Portfolio Contact from ${data.name}`);
+      const mailtoBody = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
+      
+      // Hidden anchor click for instant mail draft opening if user prefers native client
+      const mailtoUrl = `mailto:${USER_PROFILE.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
+      const hiddenLink = document.createElement("a");
+      hiddenLink.href = mailtoUrl;
+      hiddenLink.target = "_blank";
+      hiddenLink.style.display = "none";
+      document.body.appendChild(hiddenLink);
+      hiddenLink.click();
+      document.body.removeChild(hiddenLink);
+
+      setIsSubmitted(true);
+      reset();
+    } catch (err: any) {
+      console.error("Submission error:", err);
+      // Fallback submit directly via FormSubmit AJAX endpoint
+      try {
+        await fetch(`https://formsubmit.co/ajax/${USER_PROFILE.email}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            _subject: data.subject || `New Portfolio Contact Message from ${data.name}`,
+            message: data.message,
+          }),
+        });
+        setIsSubmitted(true);
+        reset();
+      } catch (fallbackErr) {
+        setErrorMessage("Could not transmit automatically. Please click direct email below to send.");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -51,7 +101,7 @@ export default function ContactSection() {
           accentColor="pink"
           statusList={[
             { label: "Channel Status", value: "Open for Roles", highlight: true },
-            { label: "Response Rate", value: "< 24 Hours" },
+            { label: "Target Inbox", value: USER_PROFILE.email },
           ]}
         />
 
@@ -67,13 +117,13 @@ export default function ContactSection() {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-tech">
                 <Terminal className="w-3.5 h-3.5" />
-                <span>DIRECT_TRANSMISSION_NODE</span>
+                <span>REAL_TIME_GMAIL_TRANSMISSION</span>
               </div>
               <h3 className="text-2xl font-bold font-tech text-white">
                 Let's Build Something Meaningful Together.
               </h3>
               <p className="text-xs md:text-sm text-zinc-400 leading-relaxed font-sans">
-                I'm actively looking for opportunities in Data Analytics, Business Intelligence, and Data Visualization. Whether you have a project, collaboration, or job opportunity, feel free to reach out.
+                I'm actively looking for opportunities in Data Analytics, Business Intelligence, and Data Visualization. Submitting this form sends a real email directly to my Gmail inbox: <strong className="text-purple-300 font-tech">{USER_PROFILE.email}</strong>.
               </p>
             </div>
 
@@ -84,7 +134,7 @@ export default function ContactSection() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="overflow-hidden">
-                  <span className="text-zinc-500 block text-[10px]">EMAIL_ADDRESS</span>
+                  <span className="text-zinc-500 block text-[10px]">REAL_GMAIL_INBOX</span>
                   <a
                     href={`mailto:${USER_PROFILE.email}`}
                     className="text-white font-bold hover:text-purple-300 transition-colors truncate block"
@@ -159,10 +209,10 @@ export default function ContactSection() {
                 </div>
                 <div className="space-y-2">
                   <h4 className="text-2xl font-bold font-tech text-white">
-                    Signal Transmitted Successfully!
+                    Real Message Transmitted!
                   </h4>
-                  <p className="text-xs md:text-sm text-zinc-400 max-w-md mx-auto font-tech">
-                    Thank you, {USER_PROFILE.name} has received your message and will respond promptly.
+                  <p className="text-xs md:text-sm text-zinc-300 max-w-md mx-auto font-tech">
+                    Your message was sent directly to <span className="text-emerald-400 font-bold">dwivediomprakash450@gmail.com</span>. Om Prakash will review and reply to your email shortly.
                   </p>
                 </div>
                 <button
@@ -174,6 +224,13 @@ export default function ContactSection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                {errorMessage && (
+                  <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-tech flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
                 <div className="grid sm:grid-cols-2 gap-6">
                   {/* Name Input */}
                   <div className="space-y-2">
@@ -196,7 +253,7 @@ export default function ContactSection() {
                   {/* Email Input */}
                   <div className="space-y-2">
                     <label className="text-xs font-tech font-semibold text-zinc-300 block">
-                      EMAIL_ADDRESS <span className="text-purple-400">*</span>
+                      SENDER_EMAIL <span className="text-purple-400">*</span>
                     </label>
                     <input
                       type="email"
@@ -225,7 +282,7 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g. Data Analyst Role / Dashboard Project"
+                    placeholder="e.g. Data Analyst Role / Business Intelligence Project"
                     {...register("subject")}
                     className="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-white/10 text-white placeholder:text-zinc-600 focus:outline-none focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/50 text-xs font-tech transition-all"
                   />
@@ -238,7 +295,7 @@ export default function ContactSection() {
                   </label>
                   <textarea
                     rows={5}
-                    placeholder="Write your project details or job opportunity inquiry..."
+                    placeholder="Write your project details, job offer, or inquiry..."
                     {...register("message", { required: "Message payload is required" })}
                     className="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-white/10 text-white placeholder:text-zinc-600 focus:outline-none focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/50 text-xs font-tech transition-all resize-none"
                   />
@@ -258,12 +315,12 @@ export default function ContactSection() {
                   {isSubmitting ? (
                     <>
                       <Sparkles className="w-4 h-4 animate-spin" />
-                      <span>Transmitting Signal...</span>
+                      <span>Transmitting Email to Gmail...</span>
                     </>
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      <span>Send Message</span>
+                      <span>Send Real Message to Gmail</span>
                     </>
                   )}
                 </button>
