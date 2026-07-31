@@ -172,18 +172,22 @@ export const PROJECTS: Project[] = [
   {
     id: "netflix-analytics",
     title: "Netflix Data Analytics Dashboard",
-    category: "Exploratory Data Analysis",
-    description: "Comprehensive exploratory data analysis and visualization of Netflix catalog, content distributions, rating trends, and regional insights.",
-    longDescription: "Analyzes the Netflix movies and TV shows dataset to identify genre popularity trends, director output, release year distributions, and global content localization.",
+    category: "Enterprise BI & Interactive Analytics",
+    description: "Fortune 500 Enterprise BI & AI Intelligence Engine performing comprehensive data analysis on Netflix's 8,807 content release records. Features interactive 3D visualizations, content velocity trajectories, demographic split, and global localization maps.",
+    longDescription: "An end-to-end Enterprise Data Analytics Hub built to visualize and analyze Netflix's global content strategy, content production velocity, rating distributions, and demographic audience segments across 8,807 movies and TV shows. Ingests raw catalog datasets, cleans missing metadata via Python Pandas & SQL, and delivers high-performance interactive visualizations with real-time cross-filtering capabilities.",
     image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&q=80&w=1200",
-    tags: ["Python", "Pandas", "Power BI", "SQL"],
-    role: "Data Analyst",
+    tags: ["Python", "Pandas", "SQL", "Power BI / Tableau", "Next.js", "React", "Data Analytics"],
+    liveUrl: "https://netflix-data-analysis-dashboard-lyn.vercel.app/",
+    githubUrl: "https://github.com/omdwivedi45",
+    role: "Lead Data Analyst & BI Developer",
     year: "2026",
     featured: true,
     architectureHighlights: [
-      "Data cleaning and missing value imputation using Python Pandas.",
-      "Content growth trends visualization over release years.",
-      "Interactive genre and country breakdown dashboards."
+      "Full catalog analysis covering 8,807 movie & TV show titles with metadata cleaning and normalization.",
+      "Content Release Velocity Trajectory tracking production acceleration across decades.",
+      "Interactive 3D Genre & Demographic Audience splits with dynamic cross-element filtering.",
+      "Top 5 Content Hubs performance breakdown and global country-wise distribution maps.",
+      "Direct interactive live dashboard visualization embedded seamlessly inside the portfolio."
     ]
   },
   {

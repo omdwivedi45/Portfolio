@@ -1,13 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Shapes, ExternalLink, Github, ArrowRight, Sparkles, Layers } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Github, ArrowRight, Sparkles, X, Play, RefreshCw, Maximize2 } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { PROJECTS } from "@/data/portfolioData";
+import { Project } from "@/types";
 
 export default function ProjectsSection() {
+  const [activeLiveProject, setActiveLiveProject] = useState<Project | null>(null);
+  const [iframeKey, setIframeKey] = useState(0);
+
   return (
     <section
       id="projects"
@@ -21,7 +26,7 @@ export default function ProjectsSection() {
           badge="SHOWCASE // ARCHIVE"
           title="Featured"
           highlightTitle="Works."
-          description="Curated data analysis projects, machine learning models, and interactive BI dashboards."
+          description="Curated data analysis projects, enterprise BI dashboards, and interactive analytics applications."
           accentColor="purple"
           statusList={[
             { label: "System Status", value: "Online", highlight: true },
@@ -50,8 +55,8 @@ export default function ProjectsSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-80" />
 
-                {/* Top Badge */}
-                <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
+                {/* Top Badges */}
+                <div className="absolute top-4 left-4 z-10 flex flex-wrap items-center gap-2">
                   <span className="px-3 py-1 rounded-full bg-zinc-950/80 border border-white/10 text-[10px] font-tech text-purple-300 backdrop-blur-md uppercase">
                     {project.category}
                   </span>
@@ -61,28 +66,38 @@ export default function ProjectsSection() {
                       FEATURED
                     </span>
                   )}
+                  {project.liveUrl && (
+                    <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[10px] font-tech text-emerald-300 flex items-center gap-1 backdrop-blur-md">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      LIVE HUB
+                    </span>
+                  )}
                 </div>
 
                 {/* External Action Links Overlay */}
-                <div className="absolute top-4 right-4 z-10 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-xl bg-zinc-950/90 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white hover:border-purple-500/40 backdrop-blur-md transition-all"
-                    title="View Source Code"
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-xl bg-purple-600/90 border border-purple-400/40 flex items-center justify-center text-white backdrop-blur-md hover:scale-105 transition-all"
-                    title="Live Demo"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+                <div className="absolute top-4 right-4 z-10 flex items-center gap-2 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-9 h-9 rounded-xl bg-zinc-950/90 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white hover:border-purple-500/40 backdrop-blur-md transition-all"
+                      title="View Source Code"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                  )}
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-9 h-9 rounded-xl bg-purple-600/90 border border-purple-400/40 flex items-center justify-center text-white backdrop-blur-md hover:scale-105 transition-all shadow-lg shadow-purple-950/50"
+                      title="Open Live Dashboard"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -116,20 +131,125 @@ export default function ProjectsSection() {
                     ))}
                   </div>
 
-                  {/* Route Link for Detail Dossier */}
-                  <Link
-                    href={`/projects/${project.id}`}
-                    className="inline-flex items-center gap-2 text-xs font-tech text-purple-400 hover:text-purple-300 font-semibold group/link"
-                  >
-                    <span>Analyze Full Architecture Dossier</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
+                  {/* Actions Bar: Live Interactive Modal & Dossier Route */}
+                  <div className="flex items-center justify-between flex-wrap gap-3 pt-2">
+                    {project.liveUrl ? (
+                      <button
+                        onClick={() => {
+                          setActiveLiveProject(project);
+                          setIframeKey((k) => k + 1);
+                        }}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-xs font-tech text-purple-300 hover:text-purple-200 transition-all"
+                      >
+                        <Play className="w-3 h-3 fill-current text-purple-400" />
+                        <span>Interactive Dashboard Preview</span>
+                      </button>
+                    ) : (
+                      <div />
+                    )}
+
+                    <Link
+                      href={`/projects/${project.id}`}
+                      className="inline-flex items-center gap-2 text-xs font-tech text-purple-400 hover:text-purple-300 font-semibold group/link ml-auto"
+                    >
+                      <span>Analyze Full Architecture</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Inline Modal for Interactive Live Visualization Stream */}
+      <AnimatePresence>
+        {activeLiveProject && activeLiveProject.liveUrl && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md"
+            onClick={() => setActiveLiveProject(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              className="relative w-full max-w-6xl h-[85vh] rounded-2xl bg-zinc-950 border border-purple-500/40 shadow-2xl shadow-purple-950/60 overflow-hidden flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="flex items-center justify-between px-6 py-4 bg-zinc-900/90 border-b border-white/10 font-tech">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <div>
+                    <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+                      {activeLiveProject.title}
+                    </h4>
+                    <span className="text-[11px] text-zinc-400 block">
+                      LIVE INTERACTIVE EMBEDDED DASHBOARD
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setIframeKey((prev) => prev + 1)}
+                    className="p-2 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition-colors flex items-center gap-1.5 text-xs"
+                    title="Reload Dashboard"
+                  >
+                    <RefreshCw className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Reload</span>
+                  </button>
+                  <a
+                    href={activeLiveProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs flex items-center gap-1.5 transition-all shadow-md shadow-purple-950/40"
+                  >
+                    <span>Open External Window</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <button
+                    onClick={() => setActiveLiveProject(null)}
+                    className="p-2 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Modal Body iframe */}
+              <div className="relative flex-grow bg-zinc-950">
+                <iframe
+                  key={iframeKey}
+                  src={activeLiveProject.liveUrl}
+                  className="w-full h-full border-0"
+                  title={`${activeLiveProject.title} Interactive Stream`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+
+              {/* Modal Footer */}
+              <div className="flex items-center justify-between px-6 py-3 bg-zinc-900/90 border-t border-white/10 font-tech text-xs text-zinc-400">
+                <span>Interact with charts, click bar filters, and explore 3D analytics directly.</span>
+                <Link
+                  href={`/projects/${activeLiveProject.id}`}
+                  onClick={() => setActiveLiveProject(null)}
+                  className="text-purple-400 hover:text-purple-300 font-semibold flex items-center gap-1"
+                >
+                  <span>View Full Architecture Specs</span>
+                  <Maximize2 className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
+
