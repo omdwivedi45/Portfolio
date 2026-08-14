@@ -29,7 +29,7 @@ export const USER_PROFILE: UserProfile = {
   stats: [
     { label: "B.Tech Specialization", value: "AI & ML", subtext: "Class of 2022–2026" },
     { label: "Core Analytics Stack", value: "Excel and Power BI", subtext: "Python & Analytics Expertise" },
-    { label: "Simulations & Projects", value: "10+", subtext: "Deloitte, Tata & Custom BI" },
+    { label: "Simulations & Projects", value: "5+", subtext: "Deloitte, Tata & Custom BI" },
     { label: "Certifications Earned", value: "7+", subtext: "Microsoft, Cisco, Forage" }
   ]
 };
@@ -215,6 +215,8 @@ export const PROJECTS: Project[] = [
     longDescription: "SplitFare optimizes commuter travel expenses by calculating per-seat costs, providing route matching, and managing shared ledger balances.",
     image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=1200",
     tags: ["Next.js", "React", "Node.js", "Express", "MongoDB"],
+    liveUrl: "https://splitfare-app-1ms4.vercel.app/",
+    githubUrl: "https://github.com/omdwivedi45",
     role: "Full-Stack & Analytics Developer",
     year: "2025",
     featured: true,

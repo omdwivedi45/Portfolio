@@ -14,6 +14,7 @@ export default function ProjectsSection() {
   const [liveCardIds, setLiveCardIds] = useState<Record<string, boolean>>({
     "data-analyst-portfolio": true,
     "netflix-analytics": true,
+    "splitfare": true,
   });
   const [iframeKey, setIframeKey] = useState(0);
 

@@ -41,6 +41,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link rel="icon" href="/assets/suit-photo.jpg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/assets/suit-photo.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/assets/suit-photo.jpg" />
+      </head>
       <body className="bg-[#050505] text-zinc-100 antialiased selection:bg-purple-500/30 selection:text-white">
         <SmoothScroll>{children}</SmoothScroll>
       </body>

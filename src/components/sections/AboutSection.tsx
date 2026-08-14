@@ -24,7 +24,7 @@ export default function AboutSection() {
           statusList={[
             { label: "Live Status", value: USER_PROFILE.statusBadge, highlight: true },
             { label: "Location", value: USER_PROFILE.location },
-            { label: "Focus", value: "Full-Stack & Analytics" },
+            { label: "Focus", value: "Dashboards and analytics" },
           ]}
         />
 
