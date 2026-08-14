@@ -9,27 +9,27 @@ interface AnimatedPreloaderProps {
 }
 
 const DATA_ANALYTICS_CODE_SNIPPETS = [
-  { text: "import pandas as pd, numpy as np, sqlite3", type: "import" },
+  { text: "import sqlite3, csv, json, math", type: "import" },
   { text: "conn = sqlite3.connect('enterprise_warehouse.db')", type: "sql" },
   { text: "SELECT client_id, SUM(revenue) AS total_sales, RANK() OVER (ORDER BY SUM(revenue) DESC)", type: "query" },
   { text: "FROM sales_fact GROUP BY client_id HAVING total_sales > 10000;", type: "query" },
-  { text: "df = pd.read_sql_query(query, conn)", type: "pandas" },
-  { text: "df['churn_risk'] = np.where(df['recency'] > 90, 'High', 'Low')", type: "logic" },
-  { text: "kpis = df.groupby('region').agg(revenue=('total_sales', 'sum'), margin=('roi', 'mean'))", type: "pandas" },
+  { text: "records = conn.execute(query).fetchall()", type: "python" },
+  { text: "churn_risk = ['High' if r > 90 else 'Low' for r in recency_list]", type: "logic" },
+  { text: "kpis = calculate_analytics(records, group='region')", type: "analytics" },
   { text: "powerbi.publish_dashboard(kpis, theme='cyber_dark', status='ONLINE')", type: "bi" }
 ];
 
 export default function AnimatedPreloader({ onComplete }: AnimatedPreloaderProps) {
   const [progress, setProgress] = useState(0);
-  const [statusText, setStatusText] = useState("Initializing Python & SQL Analytics Engine...");
+  const [statusText, setStatusText] = useState("Initializing Dashboards and Analytics Engine...");
   const [codeLines, setCodeLines] = useState<string[]>([]);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const textSequence = [
-      { threshold: 10, text: "Initializing Python & SQL Analytics Engine..." },
-      { threshold: 30, text: "Connecting Data Warehouses & SQL Pipelines..." },
-      { threshold: 55, text: "Processing Pandas Dataframes & DAX KPI Aggregations..." },
+      { threshold: 10, text: "Initializing Dashboards and Analytics Engine..." },
+      { threshold: 30, text: "Connecting Data Warehouses & Analytics Pipelines..." },
+      { threshold: 55, text: "Processing Interactive Dashboards & DAX KPI Aggregations..." },
       { threshold: 80, text: "Compiling Power BI Dashboards & Visual Intelligence..." },
       { threshold: 95, text: "Data Insights Synchronized // Portfolio Ready." },
     ];

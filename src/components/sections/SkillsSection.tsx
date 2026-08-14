@@ -32,7 +32,7 @@ export default function SkillsSection() {
           badge="CAPABILITIES // ARSENAL"
           title="Tech"
           highlightTitle="Matrix."
-          description="Comprehensive taxonomy of data science tools, SQL databases, Python analytics, and BI dashboards."
+          description="Comprehensive taxonomy of data analytics tools, relational databases, Python, and BI dashboards."
           accentColor="purple"
           statusList={[
             { label: "Stack Status", value: "Verified", highlight: true },

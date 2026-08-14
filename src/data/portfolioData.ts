@@ -4,12 +4,12 @@ export const USER_PROFILE: UserProfile = {
   name: "Om Prakash Dwivedi",
   title: "Data Analyst",
   heading: "Turning Data into Insights That Drive Better Decisions.",
-  subtitle: "I analyze data, build interactive dashboards, and transform complex datasets into meaningful business insights using SQL, Power BI, Python, and Excel.",
+  subtitle: "I analyze data, build interactive dashboards, and transform complex datasets into meaningful business insights using Dashboards and analytics, Python, and Excel.",
   tagline: "Transforming complex datasets into actionable business intelligence & interactive dashboards.",
   statusBadge: "DATA_ANALYST // Insights Node",
   bio: [
     "I am Om Prakash Dwivedi, a Data Analyst passionate about transforming raw data into actionable business insights. I recently completed my Bachelor of Technology in Artificial Intelligence & Machine Learning and enjoy solving real-world problems through analytics, visualization, and data-driven decision making.",
-    "My expertise includes SQL, Power BI, Python, Advanced Excel, Pandas, and NumPy. Through hands-on projects and industry simulations, I have developed practical experience in data cleaning, dashboard development, KPI reporting, and business intelligence.",
+    "My expertise includes Dashboards and analytics, Python, and Advanced Excel. Through hands-on projects and industry simulations, I have developed practical experience in data cleaning, dashboard development, KPI reporting, and business intelligence.",
     "I continuously improve my skills by building real-world analytics projects and learning modern data technologies to deliver measurable business value."
   ],
   education: {
@@ -28,7 +28,7 @@ export const USER_PROFILE: UserProfile = {
   resumeUrl: "/assets/resume-omprakash.pdf",
   stats: [
     { label: "B.Tech Specialization", value: "AI & ML", subtext: "Class of 2022–2026" },
-    { label: "Core Analytics Stack", value: "SQL & Power BI", subtext: "Python & Pandas Expertise" },
+    { label: "Core Analytics Stack", value: "Excel and Power BI", subtext: "Python & Analytics Expertise" },
     { label: "Simulations & Projects", value: "10+", subtext: "Deloitte, Tata & Custom BI" },
     { label: "Certifications Earned", value: "7+", subtext: "Microsoft, Cisco, Forage" }
   ]
@@ -94,12 +94,11 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     icon: "BarChart3",
     description: "Core analytical methods, data wrangling, and statistical tools.",
     skills: [
-      { name: "SQL", level: "Advanced", featured: true },
+      { name: "SQL", level: "Intermediate", featured: true },
+      { name: "Python", level: "Intermediate", featured: true },
       { name: "Power BI", level: "Advanced", featured: true },
-      { name: "Python", level: "Advanced", featured: true },
-      { name: "Excel (Advanced)", level: "Expert", featured: true },
-      { name: "Tableau", level: "Intermediate" },
-      { name: "Pandas & NumPy", level: "Advanced", featured: true }
+      { name: "Excel", level: "Advanced", featured: true },
+      { name: "Tableau", level: "Intermediate" }
     ]
   },
   {
@@ -108,9 +107,8 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     icon: "Database",
     description: "Relational and document databases for analytical query execution.",
     skills: [
-      { name: "MySQL", level: "Advanced", featured: true },
-      { name: "MongoDB", level: "Intermediate" },
-      { name: "PostgreSQL", level: "Intermediate" }
+      { name: "MySQL", level: "Intermediate", featured: true },
+      { name: "MongoDB", level: "Intermediate" }
     ]
   },
   {
@@ -119,8 +117,8 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     icon: "PieChart",
     description: "Building interactive dashboards, executive reports, and visual data stories.",
     skills: [
-      { name: "Power BI Dashboards", level: "Expert", featured: true },
-      { name: "Excel Dashboards", level: "Expert", featured: true },
+      { name: "Power BI Dashboards", level: "Advanced", featured: true },
+      { name: "Excel Dashboards", level: "Advanced", featured: true },
       { name: "Business Reporting", level: "Advanced", featured: true },
       { name: "Dashboard Design", level: "Advanced" },
       { name: "Data Storytelling", level: "Advanced", featured: true }
@@ -135,7 +133,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: "Git", level: "Intermediate" },
       { name: "GitHub", level: "Intermediate", featured: true },
       { name: "VS Code", level: "Advanced", featured: true },
-      { name: "MS Office Suite", level: "Expert", featured: true }
+      { name: "MS Office Suite", level: "Advanced", featured: true }
     ]
   }
 ];
@@ -153,11 +151,30 @@ export const MILESTONES: MilestoneItem[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: "data-analyst-portfolio",
+    title: "Data Analyst Portfolio Project",
+    category: "Web Application & BI Showcase",
+    description: "Personal Data Analyst Portfolio web application built to showcase analytics projects, skills matrix, interactive dashboards, and professional experience.",
+    longDescription: "A high-performance personal portfolio website designed to present data analytics capabilities, live embedded dashboards, interactive certificates, and career background.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Data Analytics"],
+    liveUrl: "https://portfolio-omprakash-dwivedi.vercel.app/",
+    githubUrl: "https://github.com/omdwivedi45",
+    role: "Lead Developer & Data Analyst",
+    year: "2026",
+    featured: true,
+    architectureHighlights: [
+      "Live interactive dashboard streaming and full-screen preview capability.",
+      "Custom dark cyber theme with ambient grid aesthetics and micro-animations.",
+      "Comprehensive data analytics skills, certificates, and experience showcase."
+    ]
+  },
+  {
     id: "retail-intelligence",
     title: "Retail Intelligence Dashboard",
     category: "Business Intelligence",
     description: "A complete business intelligence solution developed using SQL, Python, Excel, and Power BI that analyzes retail sales performance, customer behavior, profit trends, and operational KPIs through interactive dashboards.",
-    longDescription: "Retail Intelligence Dashboard provides an end-to-end analytical framework for retail enterprise data. Ingests transactional records via SQL, processes data cleaning with Python Pandas, computes KPIs in Excel, and delivers interactive visual storytelling in Power BI.",
+    longDescription: "Retail Intelligence Dashboard provides an end-to-end analytical framework for retail enterprise data. Ingests transactional records via SQL, processes data cleaning with Python, computes KPIs in Excel, and delivers interactive visual storytelling in Power BI.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
     tags: ["SQL", "Python", "Power BI", "Excel"],
     role: "Data Analyst",
@@ -174,9 +191,9 @@ export const PROJECTS: Project[] = [
     title: "Netflix Data Analytics Dashboard",
     category: "Enterprise BI & Interactive Analytics",
     description: "Fortune 500 Enterprise BI & AI Intelligence Engine performing comprehensive data analysis on Netflix's 8,807 content release records. Features interactive 3D visualizations, content velocity trajectories, demographic split, and global localization maps.",
-    longDescription: "An end-to-end Enterprise Data Analytics Hub built to visualize and analyze Netflix's global content strategy, content production velocity, rating distributions, and demographic audience segments across 8,807 movies and TV shows. Ingests raw catalog datasets, cleans missing metadata via Python Pandas & SQL, and delivers high-performance interactive visualizations with real-time cross-filtering capabilities.",
+    longDescription: "An end-to-end Enterprise Data Analytics Hub built to visualize and analyze Netflix's global content strategy, content production velocity, rating distributions, and demographic audience segments across 8,807 movies and TV shows. Ingests raw catalog datasets, cleans missing metadata via Python & SQL, and delivers high-performance interactive visualizations with real-time cross-filtering capabilities.",
     image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&q=80&w=1200",
-    tags: ["Python", "Pandas", "SQL", "Power BI / Tableau", "Next.js", "React", "Data Analytics"],
+    tags: ["Python", "SQL", "Power BI / Tableau", "Next.js", "React", "Data Analytics"],
     liveUrl: "https://netflix-data-analysis-dashboard-lyn.vercel.app/",
     githubUrl: "https://github.com/omdwivedi45",
     role: "Lead Data Analyst & BI Developer",
@@ -188,23 +205,6 @@ export const PROJECTS: Project[] = [
       "Interactive 3D Genre & Demographic Audience splits with dynamic cross-element filtering.",
       "Top 5 Content Hubs performance breakdown and global country-wise distribution maps.",
       "Direct interactive live dashboard visualization embedded seamlessly inside the portfolio."
-    ]
-  },
-  {
-    id: "banking-customer-analytics",
-    title: "Banking Customer Analytics",
-    category: "Customer Intelligence",
-    description: "A customer analytics project focused on customer segmentation, revenue analysis, and business performance reporting using SQL and Power BI.",
-    longDescription: "Examines banking customer churn patterns, account balances, transaction volume, and credit scores to enable targeted customer retention campaigns.",
-    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=1200",
-    tags: ["SQL", "Power BI", "Customer Segmentation"],
-    role: "Data Analyst",
-    year: "2026",
-    featured: true,
-    architectureHighlights: [
-      "SQL query pipelines for customer RFM (Recency, Frequency, Monetary) grouping.",
-      "Interactive Power BI dashboard detailing account churn risk scores.",
-      "Executive summary reporting on revenue distribution per customer segment."
     ]
   },
   {
@@ -222,70 +222,6 @@ export const PROJECTS: Project[] = [
       "Location-based ride matching and fare optimization algorithms.",
       "Real-time seat availability updates and transaction ledger.",
       "Responsive glassmorphic UI layout built with React & Tailwind CSS."
-    ]
-  },
-  {
-    id: "sales-dashboard",
-    title: "Sales Dashboard",
-    category: "Power BI Analytics",
-    description: "Interactive dashboard for monitoring sales, revenue, profit, customer growth, and product performance using Power BI.",
-    longDescription: "Monitors cross-channel sales metrics, product category profitability, monthly revenue growth rates, and top-performing sales representatives.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
-    tags: ["Power BI", "DAX", "Excel"],
-    role: "BI Developer",
-    year: "2025",
-    featured: false,
-    architectureHighlights: [
-      "Dynamic DAX expressions for Year-over-Year (YoY) growth calculation.",
-      "Interactive drill-through pages by product line and geographic region."
-    ]
-  },
-  {
-    id: "hr-analytics-dashboard",
-    title: "HR Analytics Dashboard",
-    category: "Workforce Analytics",
-    description: "Dashboard designed to analyze employee performance, attrition trends, department-wise statistics, and workforce insights.",
-    longDescription: "Empowers HR leadership to monitor employee turnover rates, satisfaction scores, salary distributions, and department headcount metrics.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200",
-    tags: ["Power BI", "Excel", "Data Visualization"],
-    role: "Data Analyst",
-    year: "2025",
-    featured: false,
-    architectureHighlights: [
-      "Employee attrition rate analysis categorized by age group and tenure.",
-      "Department-wise performance vs satisfaction scatter matrix."
-    ]
-  },
-  {
-    id: "sql-business-case-studies",
-    title: "SQL Business Case Studies",
-    category: "Database Queries",
-    description: "Collection of SQL projects involving Joins, CTEs, Window Functions, Views, Stored Procedures, and business problem-solving.",
-    longDescription: "Hands-on repository of SQL scripts solving real-world business scenarios including customer churn analysis, inventory tracking, and revenue attribution.",
-    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1200",
-    tags: ["SQL", "MySQL", "PostgreSQL", "Window Functions"],
-    role: "SQL Developer",
-    year: "2025",
-    featured: false,
-    architectureHighlights: [
-      "Advanced CTEs and window functions for running totals and rankings.",
-      "Optimized query execution plans and indexing strategies."
-    ]
-  },
-  {
-    id: "python-data-analysis",
-    title: "Python Data Analysis Suite",
-    category: "Data Science & EDA",
-    description: "Data cleaning, preprocessing, exploratory data analysis, visualization, and business reporting using Python, Pandas, and NumPy.",
-    longDescription: "A comprehensive Python analytics pipeline for cleaning messy raw datasets, conducting statistical hypothesis tests, and generating automated charts.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1200",
-    tags: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
-    role: "Data Analyst",
-    year: "2025",
-    featured: false,
-    architectureHighlights: [
-      "Automated missing value handling and outlier detection scripts.",
-      "Exploratory correlation matrices and distribution visualizations."
     ]
   }
 ];

@@ -12,7 +12,8 @@ import { Project } from "@/types";
 export default function ProjectsSection() {
   const [activeLiveProject, setActiveLiveProject] = useState<Project | null>(null);
   const [liveCardIds, setLiveCardIds] = useState<Record<string, boolean>>({
-    "netflix-analytics": true, // Enable live interactive dashboard directly on Netflix card by default
+    "data-analyst-portfolio": true,
+    "netflix-analytics": true,
   });
   const [iframeKey, setIframeKey] = useState(0);
 

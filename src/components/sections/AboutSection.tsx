@@ -70,11 +70,11 @@ export default function AboutSection() {
               </div>
               <div className="flex items-center gap-2 text-xs text-zinc-400">
                 <Zap className="w-4 h-4 text-amber-400" />
-                <span>SQL & Power BI</span>
+                <span>Dashboards and analytics</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-zinc-400">
                 <Layers className="w-4 h-4 text-purple-400" />
-                <span>Pandas & NumPy</span>
+                <span>Advanced Excel</span>
               </div>
             </div>
           </motion.div>
