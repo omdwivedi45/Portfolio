@@ -13,12 +13,17 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: `${USER_PROFILE.name} | ${USER_PROFILE.title}`,
   description: USER_PROFILE.tagline,
+  icons: {
+    icon: "/assets/suit-photo.jpg",
+    shortcut: "/assets/suit-photo.jpg",
+    apple: "/assets/suit-photo.jpg",
+  },
   keywords: [
-    "Full Stack Engineer",
-    "Next.js Developer",
-    "TypeScript Architect",
-    "Software Engineer Portfolio",
-    "React Developer",
+    "Data Analyst",
+    "Power BI Specialist",
+    "Python Analytics",
+    "SQL Developer",
+    "Business Intelligence Portfolio",
   ],
   authors: [{ name: USER_PROFILE.name }],
   openGraph: {
