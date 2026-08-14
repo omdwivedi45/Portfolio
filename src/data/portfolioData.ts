@@ -139,14 +139,16 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 ];
 
 export const MILESTONES: MilestoneItem[] = [
-  { id: "m1", title: "B.Tech in AI & ML", icon: "🎓", category: "Education" },
-  { id: "m2", title: "Deloitte Data Analytics Job Simulation", icon: "📊", category: "Forage" },
-  { id: "m3", title: "Tata GenAI Data Analytics Simulation", icon: "🤖", category: "Forage" },
-  { id: "m4", title: "Microsoft Power BI Certified", icon: "📈", category: "Certification" },
-  { id: "m5", title: "Cisco Python Essentials", icon: "🐍", category: "Certification" },
-  { id: "m6", title: "Skill Nation Power BI Masterclass", icon: "💡", category: "Workshop" },
-  { id: "m7", title: "be10X AI Tools Workshop", icon: "🚀", category: "Workshop" },
-  { id: "m8", title: "Titans Learning Training Program", icon: "🏅", category: "Training" }
+  { id: "m1", title: "B.Tech in AIML", icon: "🎓", category: "Education" },
+  { id: "m2", title: "Data Analytics Using GenAI – TataIQ", icon: "🤖", category: "Certification" },
+  { id: "m3", title: "Deloitte Data Analytics Job Simulation", icon: "📊", category: "Forage" },
+  { id: "m4", title: "Advanced Power BI – Skill Nation", icon: "💡", category: "Certification" },
+  { id: "m5", title: "Python Essentials (PCAP) – Cisco", icon: "🐍", category: "Certification" },
+  { id: "m6", title: "Networking Essentials – Cisco", icon: "🌐", category: "Certification" },
+  { id: "m7", title: "Soft Skills – Titans Learning, Nagpur", icon: "🏅", category: "Training" },
+  { id: "m8", title: "Vice Captain, Kabaddi Team – Inter College", icon: "🏆", category: "Achievement" },
+  { id: "m9", title: "Community Volunteer – Baderia Global Institute", icon: "🤝", category: "Achievement" },
+  { id: "m10", title: "Headboy – VN Convent School, Beohari", icon: "⭐", category: "Achievement" }
 ];
 
 export const PROJECTS: Project[] = [
@@ -211,40 +213,29 @@ export const PROJECTS: Project[] = [
     id: "splitfare",
     title: "SplitFare",
     category: "Web Application",
-    description: "A smart ride-sharing platform enabling users to share travel expenses through secure authentication, real-time seat availability, and location-based matching.",
-    longDescription: "SplitFare optimizes commuter travel expenses by calculating per-seat costs, providing route matching, and managing shared ledger balances.",
+    description: "Developed a carpooling platform enabling users to connect with travelers on similar routes and share travel costs efficiently, with location-based matching, real-time seat tracking, secure authentication, and integrated payment gateways.",
+    longDescription: "SplitFare optimizes commuter travel expenses by calculating per-seat costs, providing route matching, real-time seat tracking, secure authentication, and integrated payment gateways.",
     image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=1200",
-    tags: ["Next.js", "React", "Node.js", "Express", "MongoDB"],
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "UPI", "Leaflet", "Vercel"],
     liveUrl: "https://splitfare-app-1ms4.vercel.app/",
     githubUrl: "https://github.com/omdwivedi45",
     role: "Full-Stack & Analytics Developer",
-    year: "2025",
+    year: "Jun/25-Aug/25",
     featured: true,
     architectureHighlights: [
-      "Location-based ride matching and fare optimization algorithms.",
-      "Real-time seat availability updates and transaction ledger.",
-      "Responsive glassmorphic UI layout built with React & Tailwind CSS."
+      "Location-based route matching and travel fare sharing optimization.",
+      "Real-time seat tracking, secure authentication, and integrated payment gateways.",
+      "Deployed on Vercel & Render with interactive React.js UI."
     ]
   }
 ];
 
 export const CERTIFICATES: CertificateItem[] = [
   {
-    id: "cert-deloitte",
-    title: "Deloitte Data Analytics Job Simulation",
-    issuer: "Deloitte (via Forage)",
-    date: "June 30th, 2026",
-    credentialId: "jeq2ftdMQG5cr4oiX",
-    credentialUrl: "#",
-    image: "/assets/cert-deloitte.png",
-    skills: ["Data Analysis", "Forensic Technology", "Data Cleaning"],
-    description: "Completed practical tasks in data analysis, data manipulation, and forensic technology data investigations."
-  },
-  {
     id: "cert-tata",
-    title: "GenAI Powered Data Analytics Simulation",
+    title: "Data Analytics Using GenAI – TataIQ",
     issuer: "Tata Group (via Forage)",
-    date: "June 29th, 2026",
+    date: "2026",
     credentialId: "NgAco5vCCLB77DfSj",
     credentialUrl: "#",
     image: "/assets/cert-tata.png",
@@ -252,30 +243,19 @@ export const CERTIFICATES: CertificateItem[] = [
     description: "Executed practical tasks in exploratory data analysis, risk profiling, AI-driven predictive delinquency analysis, and business reporting."
   },
   {
-    id: "cert-cisco-python",
-    title: "Partner: PCAP - Programming Essentials in Python",
-    issuer: "Cisco Networking Academy",
-    date: "June 07, 2024",
-    credentialId: "CISCO-PCAP-2024",
+    id: "cert-deloitte",
+    title: "Data Analytics – Deloitte (Forage Job Simulation)",
+    issuer: "Deloitte (via Forage)",
+    date: "2026",
+    credentialId: "jeq2ftdMQG5cr4oiX",
     credentialUrl: "#",
-    image: "/assets/cert-cisco-python.png",
-    skills: ["Python", "Data Analysis", "Algorithms", "Problem Solving"],
-    description: "Completed Partner: PCAP - Programming Essentials in Python through Cisco Networking Academy program."
-  },
-  {
-    id: "cert-powerbi-ms",
-    title: "Get started building with Power BI",
-    issuer: "Microsoft",
-    date: "August 28, 2025",
-    credentialId: "MS-PBI-2025",
-    credentialUrl: "#",
-    image: "/assets/cert-ms-powerbi.png",
-    skills: ["Power BI", "Data Modeling", "Business Intelligence", "DAX"],
-    description: "Successfully completed Get started building with Power BI certification issued by Microsoft."
+    image: "/assets/cert-deloitte.png",
+    skills: ["Data Analysis", "Forensic Technology", "Data Cleaning"],
+    description: "Completed practical tasks in data analysis, data manipulation, and forensic technology data investigations."
   },
   {
     id: "cert-skill-nation",
-    title: "Basic to Advanced Microsoft Power BI",
+    title: "Advanced Power BI – Skill Nation",
     issuer: "Skill Nation (Mr. Jatan Shah)",
     date: "2025",
     credentialId: "2D169D5AF720-2D169D4C9FAC-2D08AACCC861",
@@ -285,26 +265,37 @@ export const CERTIFICATES: CertificateItem[] = [
     description: "Awarded Certificate of Completion for Advanced Masterclass on Basic to Advanced Microsoft Power BI."
   },
   {
+    id: "cert-cisco-python",
+    title: "Python Essentials (PCAP) – Cisco/Python Institute",
+    issuer: "Cisco Networking Academy",
+    date: "2024",
+    credentialId: "CISCO-PCAP-2024",
+    credentialUrl: "#",
+    image: "/assets/cert-cisco-python.png",
+    skills: ["Python", "Data Analysis", "Algorithms", "Problem Solving"],
+    description: "Completed Partner: PCAP - Programming Essentials in Python through Cisco Networking Academy program."
+  },
+  {
     id: "cert-titans",
-    title: "Titans Learning Training Program",
+    title: "Soft Skills – Titans Learning, Nagpur",
     issuer: "Baderia Global & Titans Learning",
-    date: "September 2025",
+    date: "2025",
     credentialId: "TITANS/CRT/TRNGY25/BGIEM/JBP/118",
     credentialUrl: "#",
     image: "/assets/cert-titans.png",
     skills: ["Pre-Placement Training", "Problem Solving", "Analytical Thinking"],
-    description: "Completed 108 hours of intensive Pre-Placement training conducted by Baderia Global Institute in collaboration with Titans Learning Nagpur."
+    description: "Completed 108 hours of intensive Pre-Placement and soft skills training conducted by Baderia Global Institute in collaboration with Titans Learning Nagpur."
   },
   {
-    id: "cert-be10x",
-    title: "be10X AI Tools Workshop",
-    issuer: "be10X",
-    date: "March 3rd, 2026",
-    credentialId: "BE10X-AI-2026",
+    id: "cert-cisco-networking",
+    title: "Networking Essentials – Cisco",
+    issuer: "Cisco Networking Academy",
+    date: "2024",
+    credentialId: "CISCO-NET-2024",
     credentialUrl: "#",
-    image: "/assets/cert-be10x.png",
-    skills: ["AI Tools", "ChatGPT", "Data Analysis with AI", "Prompt Engineering"],
-    description: "Awarded for completing AI tools and ChatGPT workshop covering rapid AI presentation creation, AI data analysis in under 30 minutes, and AI debugging."
+    image: "/assets/cert-cisco-python.png",
+    skills: ["Networking Essentials", "Protocols", "Infrastructure"],
+    description: "Completed Networking Essentials certification through Cisco Networking Academy program."
   }
 ];
 
