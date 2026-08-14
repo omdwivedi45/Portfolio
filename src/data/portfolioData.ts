@@ -30,7 +30,7 @@ export const USER_PROFILE: UserProfile = {
     { label: "B.Tech Specialization", value: "AI & ML", subtext: "Class of 2022–2026" },
     { label: "Core Analytics Stack", value: "Excel and Power BI", subtext: "Python & Analytics Expertise" },
     { label: "Simulations & Projects", value: "5+", subtext: "Deloitte, Tata & Custom BI" },
-    { label: "Certifications Earned", value: "7+", subtext: "Microsoft, Cisco, Forage" }
+    { label: "Certifications Earned", value: "8+", subtext: "Microsoft, Cisco, Forage & More" }
   ]
 };
 
@@ -235,7 +235,7 @@ export const CERTIFICATES: CertificateItem[] = [
     id: "cert-tata",
     title: "Data Analytics Using GenAI – TataIQ",
     issuer: "Tata Group (via Forage)",
-    date: "2026",
+    date: "June 2026",
     credentialId: "NgAco5vCCLB77DfSj",
     credentialUrl: "#",
     image: "/assets/cert-tata.png",
@@ -246,12 +246,23 @@ export const CERTIFICATES: CertificateItem[] = [
     id: "cert-deloitte",
     title: "Data Analytics – Deloitte (Forage Job Simulation)",
     issuer: "Deloitte (via Forage)",
-    date: "2026",
+    date: "June 2026",
     credentialId: "jeq2ftdMQG5cr4oiX",
     credentialUrl: "#",
     image: "/assets/cert-deloitte.png",
     skills: ["Data Analysis", "Forensic Technology", "Data Cleaning"],
     description: "Completed practical tasks in data analysis, data manipulation, and forensic technology data investigations."
+  },
+  {
+    id: "cert-powerbi-ms",
+    title: "Get started building with Power BI",
+    issuer: "Microsoft",
+    date: "August 2025",
+    credentialId: "MS-PBI-2025",
+    credentialUrl: "#",
+    image: "/assets/cert-ms-powerbi.png",
+    skills: ["Power BI", "Data Modeling", "Business Intelligence", "DAX"],
+    description: "Successfully completed Get started building with Power BI certification issued by Microsoft."
   },
   {
     id: "cert-skill-nation",
@@ -268,23 +279,12 @@ export const CERTIFICATES: CertificateItem[] = [
     id: "cert-cisco-python",
     title: "Python Essentials (PCAP) – Cisco/Python Institute",
     issuer: "Cisco Networking Academy",
-    date: "2024",
+    date: "June 2024",
     credentialId: "CISCO-PCAP-2024",
     credentialUrl: "#",
     image: "/assets/cert-cisco-python.png",
     skills: ["Python", "Data Analysis", "Algorithms", "Problem Solving"],
     description: "Completed Partner: PCAP - Programming Essentials in Python through Cisco Networking Academy program."
-  },
-  {
-    id: "cert-titans",
-    title: "Soft Skills – Titans Learning, Nagpur",
-    issuer: "Baderia Global & Titans Learning",
-    date: "2025",
-    credentialId: "TITANS/CRT/TRNGY25/BGIEM/JBP/118",
-    credentialUrl: "#",
-    image: "/assets/cert-titans.png",
-    skills: ["Pre-Placement Training", "Problem Solving", "Analytical Thinking"],
-    description: "Completed 108 hours of intensive Pre-Placement and soft skills training conducted by Baderia Global Institute in collaboration with Titans Learning Nagpur."
   },
   {
     id: "cert-cisco-networking",
@@ -296,6 +296,28 @@ export const CERTIFICATES: CertificateItem[] = [
     image: "/assets/cert-cisco-python.png",
     skills: ["Networking Essentials", "Protocols", "Infrastructure"],
     description: "Completed Networking Essentials certification through Cisco Networking Academy program."
+  },
+  {
+    id: "cert-titans",
+    title: "Soft Skills – Titans Learning, Nagpur",
+    issuer: "Baderia Global & Titans Learning",
+    date: "September 2025",
+    credentialId: "TITANS/CRT/TRNGY25/BGIEM/JBP/118",
+    credentialUrl: "#",
+    image: "/assets/cert-titans.png",
+    skills: ["Pre-Placement Training", "Problem Solving", "Analytical Thinking"],
+    description: "Completed 108 hours of intensive Pre-Placement and soft skills training conducted by Baderia Global Institute in collaboration with Titans Learning Nagpur."
+  },
+  {
+    id: "cert-be10x",
+    title: "be10X AI Tools Workshop",
+    issuer: "be10X",
+    date: "March 2026",
+    credentialId: "BE10X-AI-2026",
+    credentialUrl: "#",
+    image: "/assets/cert-be10x.png",
+    skills: ["AI Tools", "ChatGPT", "Data Analysis with AI", "Prompt Engineering"],
+    description: "Awarded for completing AI tools and ChatGPT workshop covering rapid AI presentation creation, AI data analysis in under 30 minutes, and AI debugging."
   }
 ];
 
