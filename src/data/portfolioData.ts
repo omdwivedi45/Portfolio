@@ -18,7 +18,7 @@ export const USER_PROFILE: UserProfile = {
     institution: "Baderia Global Institute of Engineering and Management",
     period: "2022 – 2026"
   },
-  careerObjective: "To begin my career as a Data Analyst where I can apply analytical thinking, technical expertise, and business intelligence skills to solve real-world problems while continuously learning and growing.",
+  careerObjective: "To obtain a challenging role as a Data Analyst in a reputed organization that allows me to leverage my academic knowledge, practical experience in SQL, Power BI, and Python, and acquired analytical skills to contribute to the company's growth while fulfilling organizational goals and advancing my professional career.",
   location: "Jabalpur, Madhya Pradesh, India",
   email: "dwivediomprakash450@gmail.com",
   phone: "+91 9993330294",
