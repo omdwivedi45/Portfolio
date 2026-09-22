@@ -49,7 +49,7 @@ export default function ResumeSection() {
                   Omprakash_Dwivedi_Resume.pdf
                 </h3>
                 <p className="text-xs font-tech text-zinc-400">
-                  Data Analyst // B.Tech AI & ML // 2022–2026
+                  Generative AI Engineer // B.Tech AI & ML // 2022–2026
                 </p>
               </div>
             </div>

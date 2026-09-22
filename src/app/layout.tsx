@@ -19,11 +19,12 @@ export const metadata: Metadata = {
     apple: "/assets/suit-photo.jpg",
   },
   keywords: [
-    "Data Analyst",
-    "Power BI Specialist",
-    "Python Analytics",
-    "SQL Developer",
-    "Business Intelligence Portfolio",
+    "Generative AI Engineer",
+    "AI-Assisted Development",
+    "Anthropic API",
+    "LLM Fundamentals",
+    "Python & FastAPI Developer",
+    "Data Analytics & Power BI",
   ],
   authors: [{ name: USER_PROFILE.name }],
   openGraph: {

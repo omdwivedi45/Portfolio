@@ -61,9 +61,9 @@ export default function HeroSection() {
                 <span>HELLO, I'M {USER_PROFILE.name.toUpperCase()}</span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-tech leading-tight">
-                Turning Data into Insights That{" "}
+                Generative AI & AI-Assisted{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-300 to-purple-500">
-                  Drive Better Decisions.
+                  Development Engineer.
                 </span>
               </h1>
             </div>

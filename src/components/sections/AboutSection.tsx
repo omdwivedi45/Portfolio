@@ -24,7 +24,7 @@ export default function AboutSection() {
           statusList={[
             { label: "Live Status", value: USER_PROFILE.statusBadge, highlight: true },
             { label: "Location", value: USER_PROFILE.location },
-            { label: "Focus", value: "Dashboards and analytics" },
+            { label: "Focus", value: "Generative AI & LLMs" },
           ]}
         />
 
@@ -50,7 +50,7 @@ export default function AboutSection() {
                     {USER_PROFILE.name}
                   </h3>
                   <span className="text-xs font-tech text-purple-400">
-                    SPECIALIZATION: DATA_ANALYST
+                    SPECIALIZATION: GEN_AI_ENGINEER
                   </span>
                 </div>
               </div>
@@ -66,15 +66,15 @@ export default function AboutSection() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-8 mt-8 border-t border-white/5 relative z-10 font-tech">
               <div className="flex items-center gap-2 text-xs text-zinc-400">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>KPI Reporting</span>
+                <span>Anthropic API & LLMs</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-zinc-400">
                 <Zap className="w-4 h-4 text-amber-400" />
-                <span>Dashboards and analytics</span>
+                <span>AI-Assisted Dev</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-zinc-400">
                 <Layers className="w-4 h-4 text-purple-400" />
-                <span>Advanced Excel</span>
+                <span>Python & Analytics</span>
               </div>
             </div>
           </motion.div>

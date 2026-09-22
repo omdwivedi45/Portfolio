@@ -78,7 +78,7 @@ export default function ContactSection() {
           badge="CONNECT // COMMUNICATION"
           title="Digital"
           highlightTitle="Hub."
-          description="Direct contact channels for data analytics opportunities, dashboard projects, or collaborations."
+          description="Direct contact channels for Generative AI Engineer opportunities, AI-assisted development projects, or data analytics collaborations."
           accentColor="pink"
           statusList={[
             { label: "Channel Status", value: "Open for Roles", highlight: true },
@@ -104,7 +104,7 @@ export default function ContactSection() {
                 Let's Build Something Meaningful Together.
               </h3>
               <p className="text-xs md:text-sm text-zinc-400 leading-relaxed font-sans">
-                I'm actively looking for opportunities in Data Analytics, Business Intelligence, and Data Visualization. Submitting this form opens Gmail directly to send an authentic email to <strong className="text-purple-300 font-tech">{USER_PROFILE.email}</strong>.
+                I'm actively looking for opportunities in Generative AI, AI-Assisted Development, and Data Analytics. Submitting this form opens Gmail directly to send an authentic email to <strong className="text-purple-300 font-tech">{USER_PROFILE.email}</strong>.
               </p>
             </div>
 

@@ -1,25 +1,25 @@
 import { UserProfile, ExperienceItem, SkillCategory, Project, CertificateItem, SocialLink, MilestoneItem, GalleryItem } from "@/types";
 
 export const USER_PROFILE: UserProfile = {
-  name: "Om Prakash Dwivedi",
-  title: "Data Analyst",
-  heading: "Turning Data into Insights That Drive Better Decisions.",
-  subtitle: "I analyze data, build interactive dashboards, and transform complex datasets into meaningful business insights using Dashboards and analytics, Python, and Excel.",
-  tagline: "Transforming complex datasets into actionable business intelligence & interactive dashboards.",
-  statusBadge: "DATA_ANALYST // Insights Node",
+  name: "Omprakash Dwivedi",
+  title: "Generative AI Engineer",
+  heading: "Building Practical, Intelligent Applications via GenAI & AI-Assisted Development.",
+  subtitle: "B.Tech graduate in Computer Science Engineering (AI & ML) with hands-on GenAI exposure, Anthropic API integration, LLM fundamentals, and data analytics.",
+  tagline: "Generative AI Engineer | AI-Assisted Development | Data Analytics",
+  statusBadge: "GEN_AI_ENGINEER // Intelligence Node",
   bio: [
-    "I am Om Prakash Dwivedi, a Data Analyst passionate about transforming raw data into actionable business insights. I recently completed my Bachelor of Technology in Artificial Intelligence & Machine Learning and enjoy solving real-world problems through analytics, visualization, and data-driven decision making.",
-    "My expertise includes Dashboards and analytics, Python, and Advanced Excel. Through hands-on projects and industry simulations, I have developed practical experience in data cleaning, dashboard development, KPI reporting, and business intelligence.",
-    "I continuously improve my skills by building real-world analytics projects and learning modern data technologies to deliver measurable business value."
+    "B.Tech graduate in Computer Science Engineering (AI & ML) building toward a career as a Generative AI / AI Engineer. Hands-on GenAI exposure includes integrating the Anthropic API into a working Python script and completing a GenAI-focused data analytics simulation with Tata Group (Forage), applying generative AI to exploratory data analysis and designing an agentic-AI-driven strategy for a financial-services use case.",
+    "Comfortable across the full build cycle — API integration, data processing with Python and Pandas, forecasting fundamentals, and SQL/Power BI-driven analytics — demonstrated through an AI-powered demand-forecasting platform, a content analytics application, and a full-stack carpooling platform.",
+    "Seeking an entry-level Generative AI Engineer role to apply LLM concepts and AI-assisted development to build practical, intelligent applications."
   ],
   education: {
     degree: "Bachelor of Technology",
-    field: "Artificial Intelligence & Machine Learning",
-    institution: "Baderia Global Institute of Engineering and Management",
+    field: "Computer Science Engineering (AI & ML)",
+    institution: "Baderia Global Institute of Engineering and Management, Jabalpur",
     period: "2022 – 2026"
   },
-  careerObjective: "To obtain a challenging role as a Data Analyst in a reputed organization that allows me to leverage my academic knowledge, practical experience in SQL, Power BI, and Python, and acquired analytical skills to contribute to the company's growth while fulfilling organizational goals and advancing my professional career.",
-  location: "Jabalpur, Madhya Pradesh, India",
+  careerObjective: "Seeking an entry-level Generative AI Engineer role to apply LLM concepts and AI-assisted development to build practical, intelligent applications.",
+  location: "Indore, India",
   email: "dwivediomprakash450@gmail.com",
   phone: "+91 9993330294",
   github: "https://github.com/omdwivedi45",
@@ -27,10 +27,10 @@ export const USER_PROFILE: UserProfile = {
   avatarUrl: "/assets/suit-photo.jpg",
   resumeUrl: "/assets/resume-omprakash.pdf",
   stats: [
-    { label: "B.Tech Specialization", value: "AI & ML", subtext: "Class of 2022–2026" },
-    { label: "Core Analytics Stack", value: "Excel and Power BI", subtext: "Python & Analytics Expertise" },
-    { label: "Simulations & Projects", value: "5+", subtext: "Deloitte, Tata & Custom BI" },
-    { label: "Certifications Earned", value: "8+", subtext: "Microsoft, Cisco, Forage & More" }
+    { label: "Specialization", value: "B.Tech AI & ML", subtext: "Class of 2022–2026 (CGPA 7.7)" },
+    { label: "Core Focus", value: "GenAI & LLMs", subtext: "Anthropic API & AI-Assisted Dev" },
+    { label: "Build Stack", value: "Python & APIs", subtext: "FastAPI, Pandas, SQL & Power BI" },
+    { label: "Certifications", value: "5+", subtext: "Tata GenAI, Deloitte, Cisco & MS" }
   ]
 };
 
@@ -43,112 +43,121 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    id: "exp-deloitte",
-    role: "Data Analytics Job Simulation",
-    company: "Deloitte (Forage)",
-    location: "Virtual / Forage",
-    period: "June 2026",
-    description: "Completed practical job simulation tasks focused on data analysis, forensic technology, and business reporting.",
-    achievements: [
-      "Performed data cleaning and data manipulation on complex financial and operational datasets.",
-      "Conducted forensic technology data investigation to identify anomalies and pattern trends.",
-      "Developed business analysis summaries and executive dashboard reporting models."
-    ],
-    skills: ["Data Cleaning", "Business Analysis", "Dashboard Reporting", "Forensic Technology"]
-  },
-  {
-    id: "exp-tata",
-    role: "GenAI Powered Data Analytics Simulation",
-    company: "Tata Group (Forage)",
-    location: "Virtual / Forage",
-    period: "June 2026",
-    description: "Participated in an AI-assisted analytics simulation to perform risk profiling, predictive delinquency analysis, and collections strategy reporting.",
-    achievements: [
-      "Executed exploratory data analysis and risk profiling to uncover hidden customer behavioral patterns.",
-      "Utilized AI-assisted predictive analytics to forecast delinquency trends.",
-      "Delivered business reports and data storytelling for collections and executive strategy."
-    ],
-    skills: ["Exploratory Data Analysis", "AI Assisted Analytics", "Business Reporting", "Predictive Analysis"]
-  },
-  {
     id: "exp-mittsure",
     role: "Relationship Manager",
     company: "Mittsure Technologies",
-    location: "On-site / Operations",
-    period: "2024",
-    description: "Managed client relationships, business operations, and customer communication processes.",
+    location: "Indore / On-site",
+    period: "Oct 2025 – Jan 2026",
+    description: "Managed client relationships and tracked performance metrics to support informed, data-backed business decisions.",
     achievements: [
-      "Strengthened customer relationship management (CRM) workflows and client rapport.",
-      "Streamlined sales process understanding and customer support operations.",
-      "Analyzed operational communications to improve client retention metrics."
+      "Managed client relationships and tracked performance metrics to support informed, data-backed business decisions.",
+      "Communicated with stakeholders to identify needs and translate them into actionable follow-ups, strengthening client-facing communication and problem-solving skills."
     ],
-    skills: ["Customer Relationship Management", "Client Communication", "Business Operations", "Sales Process"],
+    skills: ["Client Relationship Management", "Performance Metrics", "Stakeholder Communication", "Data-Backed Decision Making", "Problem Solving"],
     image: "/assets/mittsure-photo.png"
+  },
+  {
+    id: "exp-tata",
+    role: "Data Analytics Using GenAI (Job Simulation)",
+    company: "Tata Group (Forage)",
+    location: "Virtual / Forage",
+    period: "2026",
+    description: "Performed GenAI-assisted exploratory data analysis, designed a no-code predictive framework to assess customer delinquency risk, and outlined an agentic-AI strategy.",
+    achievements: [
+      "Performed GenAI-assisted exploratory data analysis and risk profiling to assess customer delinquency risk.",
+      "Designed a no-code predictive framework to evaluate financial risk indicators.",
+      "Outlined an agentic-AI-driven collections strategy for a financial-services use case."
+    ],
+    skills: ["Generative AI", "Agentic AI Strategy", "Exploratory Data Analysis", "Predictive Analytics", "Delinquency Risk Assessment"]
+  },
+  {
+    id: "exp-deloitte",
+    role: "Data Analytics Job Simulation",
+    company: "Deloitte Australia (Forage)",
+    location: "Virtual / Forage",
+    period: "2026",
+    description: "Applied data analysis and forensic-technology workflows to support investigative, evidence-based business scenarios.",
+    achievements: [
+      "Applied data analysis and forensic-technology workflows to support investigative, evidence-based business scenarios.",
+      "Performed data cleaning and data manipulation on complex operational datasets.",
+      "Delivered business analysis summaries and executive reporting models."
+    ],
+    skills: ["Data Analysis", "Forensic Technology Workflows", "Data Cleaning", "Investigative Analysis", "Business Reporting"]
   }
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    id: "data-analytics",
-    title: "Data Analytics",
+    id: "genai-llm",
+    title: "Generative AI & LLM",
+    icon: "Cpu",
+    description: "Prompt Engineering, LLM & NLP fundamentals, AI-Assisted development, and Anthropic API integration.",
+    skills: [
+      { name: "Prompt Engineering", level: "Advanced", featured: true },
+      { name: "Generative AI Concepts", level: "Advanced", featured: true },
+      { name: "LLM Fundamentals", level: "Advanced", featured: true },
+      { name: "NLP Fundamentals", level: "Intermediate", featured: true },
+      { name: "AI-Assisted Development", level: "Advanced", featured: true },
+      { name: "Anthropic API", level: "Advanced", featured: true }
+    ]
+  },
+  {
+    id: "programming-ml",
+    title: "Programming & Machine Learning",
     icon: "BarChart3",
-    description: "Core analytical methods, data wrangling, and statistical tools.",
+    description: "Python development, data manipulation with Pandas & NumPy, ML fundamentals, and time-series forecasting.",
     skills: [
-      { name: "SQL", level: "Intermediate", featured: true },
-      { name: "Python", level: "Intermediate", featured: true },
-      { name: "Power BI", level: "Advanced", featured: true },
-      { name: "Excel", level: "Advanced", featured: true },
-      { name: "Tableau", level: "Intermediate" }
+      { name: "Python (Pandas, NumPy)", level: "Advanced", featured: true },
+      { name: "Machine Learning Fundamentals", level: "Intermediate", featured: true },
+      { name: "Time-Series Forecasting", level: "Intermediate", featured: true },
+      { name: "SES / Holt's Linear / Moving Average", level: "Intermediate" },
+      { name: "Ensemble Forecasting Methods", level: "Intermediate" }
     ]
   },
   {
-    id: "databases",
-    title: "Databases & Storage",
-    icon: "Database",
-    description: "Relational and document databases for analytical query execution.",
+    id: "apis-dev",
+    title: "APIs & Application Development",
+    icon: "Wrench",
+    description: "FastAPI services, REST APIs, TMDB API integration, and Anthropic API workflows.",
     skills: [
-      { name: "MySQL", level: "Intermediate", featured: true },
-      { name: "MongoDB", level: "Intermediate" }
+      { name: "FastAPI", level: "Intermediate", featured: true },
+      { name: "REST APIs", level: "Advanced", featured: true },
+      { name: "TMDB API", level: "Intermediate" },
+      { name: "Anthropic API", level: "Advanced", featured: true }
     ]
   },
   {
-    id: "data-viz",
-    title: "Data Visualization & BI",
+    id: "data-analytics",
+    title: "Data & Analytics",
     icon: "PieChart",
-    description: "Building interactive dashboards, executive reports, and visual data stories.",
+    description: "SQL query optimization, interactive Power BI dashboards, and Advanced Excel modeling.",
     skills: [
-      { name: "Power BI Dashboards", level: "Advanced", featured: true },
-      { name: "Excel Dashboards", level: "Advanced", featured: true },
-      { name: "Business Reporting", level: "Advanced", featured: true },
-      { name: "Dashboard Design", level: "Advanced" },
-      { name: "Data Storytelling", level: "Advanced", featured: true }
+      { name: "SQL (Joins, Window Functions)", level: "Advanced", featured: true },
+      { name: "Power BI (Data Modeling & Dashboards)", level: "Advanced", featured: true },
+      { name: "Advanced Excel (Pivot Tables, Lookups)", level: "Advanced", featured: true }
     ]
   },
   {
     id: "tools",
-    title: "Tools & Environment",
-    icon: "Wrench",
-    description: "Development environments, version control, and productivity tools.",
+    title: "Development & Tools",
+    icon: "Database",
+    description: "Database systems, version control, and team collaboration software.",
     skills: [
+      { name: "MongoDB", level: "Intermediate", featured: true },
       { name: "Git", level: "Intermediate" },
-      { name: "GitHub", level: "Intermediate", featured: true },
-      { name: "VS Code", level: "Advanced", featured: true },
-      { name: "MS Office Suite", level: "Advanced", featured: true }
+      { name: "GitHub", level: "Intermediate", featured: true }
     ]
   }
 ];
 
 export const MILESTONES: MilestoneItem[] = [
-  { id: "m1", title: "B.Tech in AIML", icon: "🎓", category: "Education" },
-  { id: "m2", title: "Data Analytics Using GenAI – TataIQ", icon: "🤖", category: "Certification" },
-  { id: "m3", title: "Deloitte Data Analytics Job Simulation", icon: "📊", category: "Forage" },
-  { id: "m4", title: "Advanced Power BI – Skill Nation", icon: "💡", category: "Certification" },
-  { id: "m5", title: "Python Essentials (PCAP) – Cisco", icon: "🐍", category: "Certification" },
-  { id: "m6", title: "Networking Essentials – Cisco", icon: "🌐", category: "Certification" },
-  { id: "m7", title: "Soft Skills – Titans Learning, Nagpur", icon: "🏅", category: "Training" },
-  { id: "m8", title: "Vice Captain, Kabaddi Team – Inter College", icon: "🏆", category: "Achievement" },
-  { id: "m9", title: "Community Volunteer – Baderia Global Institute", icon: "🤝", category: "Achievement" },
-  { id: "m10", title: "Headboy – VN Convent School, Beohari", icon: "⭐", category: "Achievement" }
+  { id: "m1", title: "B.Tech in CSE (AI & ML) — CGPA 7.7", icon: "🎓", category: "Education" },
+  { id: "m2", title: "Data Analytics Using GenAI – Tata Group", icon: "🤖", category: "Certification" },
+  { id: "m3", title: "Data Analytics Simulation – Deloitte Australia", icon: "📊", category: "Forage" },
+  { id: "m4", title: "AI Tools and ChatGPT Workshop – be10x", icon: "⚡", category: "Workshop" },
+  { id: "m5", title: "Python Essentials (PCAP) – Cisco Academy", icon: "🐍", category: "Certification" },
+  { id: "m6", title: "Get Started Building with Power BI – Microsoft", icon: "💡", category: "Certification" },
+  { id: "m7", title: "Relationship Manager – Mittsure Technologies", icon: "💼", category: "Experience" }
 ];
 
 export const PROJECTS: Project[] = [
@@ -233,99 +242,66 @@ export const PROJECTS: Project[] = [
 export const CERTIFICATES: CertificateItem[] = [
   {
     id: "cert-tata",
-    title: "Data Analytics Using GenAI – TataIQ",
+    title: "Data Analytics Using GenAI — Tata Group, Forage",
     issuer: "Tata Group (via Forage)",
-    date: "June 2026",
-    credentialId: "NgAco5vCCLB77DfSj",
+    date: "2026",
+    credentialId: "Tata-GenAI-2026",
     credentialUrl: "#",
     image: "/assets/cert-tata.png",
-    skills: ["Exploratory Data Analysis", "AI Analytics", "Predictive Modeling"],
-    description: "Executed practical tasks in exploratory data analysis, risk profiling, AI-driven predictive delinquency analysis, and business reporting."
+    skills: ["Generative AI", "Exploratory Data Analysis", "Predictive Delinquency Risk", "Agentic AI Strategy"],
+    description: "Performed GenAI-assisted exploratory data analysis, designed a no-code predictive framework to assess customer delinquency risk, and outlined an agentic-AI-driven collections strategy for a financial-services use case."
   },
   {
     id: "cert-deloitte",
-    title: "Data Analytics – Deloitte (Forage Job Simulation)",
-    issuer: "Deloitte (via Forage)",
-    date: "June 2026",
-    credentialId: "jeq2ftdMQG5cr4oiX",
+    title: "Data Analytics Job Simulation — Deloitte Australia",
+    issuer: "Deloitte Australia (via Forage)",
+    date: "2026",
+    credentialId: "Deloitte-DA-2026",
     credentialUrl: "#",
     image: "/assets/cert-deloitte.png",
-    skills: ["Data Analysis", "Forensic Technology", "Data Cleaning"],
-    description: "Completed practical tasks in data analysis, data manipulation, and forensic technology data investigations."
+    skills: ["Data Analysis", "Forensic Technology Workflows", "Data Cleaning", "Investigative Analysis"],
+    description: "Applied data analysis and forensic-technology workflows to support investigative, evidence-based business scenarios."
   },
   {
-    id: "cert-powerbi-ms",
-    title: "Get started building with Power BI",
-    issuer: "Microsoft",
-    date: "August 2025",
-    credentialId: "MS-PBI-2025",
+    id: "cert-be10x",
+    title: "AI Tools and ChatGPT Workshop — be10x",
+    issuer: "be10x",
+    date: "2026",
+    credentialId: "BE10X-AI-2026",
     credentialUrl: "#",
-    image: "/assets/cert-ms-powerbi.png",
-    skills: ["Power BI", "Data Modeling", "Business Intelligence", "DAX"],
-    description: "Successfully completed Get started building with Power BI certification issued by Microsoft."
-  },
-  {
-    id: "cert-skill-nation",
-    title: "Advanced Power BI – Skill Nation",
-    issuer: "Skill Nation (Mr. Jatan Shah)",
-    date: "2025",
-    credentialId: "2D169D5AF720-2D169D4C9FAC-2D08AACCC861",
-    credentialUrl: "#",
-    image: "/assets/cert-skillnation-powerbi.png",
-    skills: ["Power BI Masterclass", "DAX Formulas", "Interactive Dashboards", "KPI Reporting"],
-    description: "Awarded Certificate of Completion for Advanced Masterclass on Basic to Advanced Microsoft Power BI."
+    image: "/assets/cert-be10x.png",
+    skills: ["AI Tools", "ChatGPT", "GenAI Workflows", "Prompt Engineering"],
+    description: "Hands-on session on practical GenAI workflows for analysis and productivity."
   },
   {
     id: "cert-cisco-python",
-    title: "Python Essentials (PCAP) – Cisco/Python Institute",
+    title: "Python Essentials (PCAP) — Cisco Networking Academy",
     issuer: "Cisco Networking Academy",
-    date: "June 2024",
+    date: "2024",
     credentialId: "CISCO-PCAP-2024",
     credentialUrl: "#",
     image: "/assets/cert-cisco-python.png",
     skills: ["Python", "Data Analysis", "Algorithms", "Problem Solving"],
-    description: "Completed Partner: PCAP - Programming Essentials in Python through Cisco Networking Academy program."
+    description: "Completed Programming Essentials in Python through Cisco Networking Academy program."
   },
   {
-    id: "cert-cisco-networking",
-    title: "Networking Essentials – Cisco",
-    issuer: "Cisco Networking Academy",
-    date: "2024",
-    credentialId: "CISCO-NET-2024",
+    id: "cert-powerbi-ms",
+    title: "Get Started Building with Power BI — Microsoft Learn",
+    issuer: "Microsoft Learn",
+    date: "2025",
+    credentialId: "MS-PBI-2025",
     credentialUrl: "#",
-    image: "/assets/cert-cisco-python.png",
-    skills: ["Networking Essentials", "Protocols", "Infrastructure"],
-    description: "Completed Networking Essentials certification through Cisco Networking Academy program."
-  },
-  {
-    id: "cert-titans",
-    title: "Soft Skills – Titans Learning, Nagpur",
-    issuer: "Baderia Global & Titans Learning",
-    date: "September 2025",
-    credentialId: "TITANS/CRT/TRNGY25/BGIEM/JBP/118",
-    credentialUrl: "#",
-    image: "/assets/cert-titans.png",
-    skills: ["Pre-Placement Training", "Problem Solving", "Analytical Thinking"],
-    description: "Completed 108 hours of intensive Pre-Placement and soft skills training conducted by Baderia Global Institute in collaboration with Titans Learning Nagpur."
-  },
-  {
-    id: "cert-be10x",
-    title: "be10X AI Tools Workshop",
-    issuer: "be10X",
-    date: "March 2026",
-    credentialId: "BE10X-AI-2026",
-    credentialUrl: "#",
-    image: "/assets/cert-be10x.png",
-    skills: ["AI Tools", "ChatGPT", "Data Analysis with AI", "Prompt Engineering"],
-    description: "Awarded for completing AI tools and ChatGPT workshop covering rapid AI presentation creation, AI data analysis in under 30 minutes, and AI debugging."
+    image: "/assets/cert-ms-powerbi.png",
+    skills: ["Power BI", "Data Modeling", "Business Intelligence", "Dashboards"],
+    description: "Successfully completed Get started building with Power BI certification issued by Microsoft Learn."
   }
 ];
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-suit-photo",
-    title: "Om Prakash Dwivedi",
-    caption: "Professional Portrait — Data Analyst",
+    title: "Omprakash Dwivedi",
+    caption: "Professional Portrait — Generative AI Engineer",
     image: "/assets/suit-photo.jpg",
     category: "Professional"
   },
@@ -351,3 +327,4 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Certificates"
   }
 ];
+
