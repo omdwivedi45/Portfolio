@@ -30,7 +30,7 @@ export const USER_PROFILE: UserProfile = {
     { label: "Specialization", value: "B.Tech AI & ML", subtext: "Class of 2022–2026 (CGPA 7.7)" },
     { label: "Core Focus", value: "GenAI & LLMs", subtext: "Anthropic API & AI-Assisted Dev" },
     { label: "Build Stack", value: "Python & APIs", subtext: "FastAPI, Pandas, SQL & Power BI" },
-    { label: "Certifications", value: "5+", subtext: "Tata GenAI, Deloitte, Cisco & MS" }
+    { label: "Certifications", value: "8+", subtext: "Tata GenAI, Deloitte, MS, Cisco & More" }
   ]
 };
 
@@ -274,6 +274,28 @@ export const CERTIFICATES: CertificateItem[] = [
     description: "Hands-on session on practical GenAI workflows for analysis and productivity."
   },
   {
+    id: "cert-powerbi-ms",
+    title: "Get Started Building with Power BI — Microsoft Learn",
+    issuer: "Microsoft Learn",
+    date: "2025",
+    credentialId: "MS-PBI-2025",
+    credentialUrl: "#",
+    image: "/assets/cert-ms-powerbi.png",
+    skills: ["Power BI", "Data Modeling", "Business Intelligence", "Dashboards"],
+    description: "Successfully completed Get started building with Power BI certification issued by Microsoft Learn."
+  },
+  {
+    id: "cert-skill-nation",
+    title: "Advanced Power BI – Skill Nation",
+    issuer: "Skill Nation (Mr. Jatan Shah)",
+    date: "2025",
+    credentialId: "2D169D5AF720-2D169D4C9FAC-2D08AACCC861",
+    credentialUrl: "#",
+    image: "/assets/cert-skillnation-powerbi.png",
+    skills: ["Power BI Masterclass", "DAX Formulas", "Interactive Dashboards", "KPI Reporting"],
+    description: "Awarded Certificate of Completion for Advanced Masterclass on Basic to Advanced Microsoft Power BI."
+  },
+  {
     id: "cert-cisco-python",
     title: "Python Essentials (PCAP) — Cisco Networking Academy",
     issuer: "Cisco Networking Academy",
@@ -285,15 +307,26 @@ export const CERTIFICATES: CertificateItem[] = [
     description: "Completed Programming Essentials in Python through Cisco Networking Academy program."
   },
   {
-    id: "cert-powerbi-ms",
-    title: "Get Started Building with Power BI — Microsoft Learn",
-    issuer: "Microsoft Learn",
-    date: "2025",
-    credentialId: "MS-PBI-2025",
+    id: "cert-cisco-networking",
+    title: "Networking Essentials – Cisco",
+    issuer: "Cisco Networking Academy",
+    date: "2024",
+    credentialId: "CISCO-NET-2024",
     credentialUrl: "#",
-    image: "/assets/cert-ms-powerbi.png",
-    skills: ["Power BI", "Data Modeling", "Business Intelligence", "Dashboards"],
-    description: "Successfully completed Get started building with Power BI certification issued by Microsoft Learn."
+    image: "/assets/cert-cisco-python.png",
+    skills: ["Networking Essentials", "Protocols", "Infrastructure"],
+    description: "Completed Networking Essentials certification through Cisco Networking Academy program."
+  },
+  {
+    id: "cert-titans",
+    title: "Soft Skills – Titans Learning, Nagpur",
+    issuer: "Baderia Global & Titans Learning",
+    date: "September 2025",
+    credentialId: "TITANS/CRT/TRNGY25/BGIEM/JBP/118",
+    credentialUrl: "#",
+    image: "/assets/cert-titans.png",
+    skills: ["Pre-Placement Training", "Problem Solving", "Analytical Thinking"],
+    description: "Completed 108 hours of intensive Pre-Placement and soft skills training conducted by Baderia Global Institute in collaboration with Titans Learning Nagpur."
   }
 ];
 
